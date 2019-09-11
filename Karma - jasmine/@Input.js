@@ -1,0 +1,1 @@
+https://medium.com/@AikoPath/testing-angular-components-with-input-3bd6c07cfaf6
