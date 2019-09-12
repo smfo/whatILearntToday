@@ -19,4 +19,5 @@ it('Should do something', () => {
 
 
 detectChanges(): change detection does not happen automatically and have to be called
-the first call will trigger the components lifecycle hook (and run ngOnInit), for testing related to this, do not call in "beforeEach" (see @Input)
+the first call will trigger the components lifecycle hook (and run ngOnInit), 
+for testing related to this, do not call in "beforeEach" (see @Input)

@@ -1,9 +1,9 @@
-https://medium.com/frontend-fun/angular-unit-testing-jasmine-karma-step-by-step-e3376d110ab4
-Want to create a mocked version of the service for testing
+
+Want to create a mocked version of the service for testing, instead of using the real thing
+the mocked service can be created in the test file or be imported as a seperate file
 
 
-
-let fakeUserService = {
+let fakeUserService = {                         
     currentUser: new BehaviorSubject(null),     //mocked value
     setCurrentRole: (id: string) => {           //mocked method
         return of(null)
