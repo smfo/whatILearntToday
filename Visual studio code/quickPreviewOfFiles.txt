@@ -1,0 +1,20 @@
+
+Files that are opened are only in preview mode until they are edited, this is
+shown by the filename being in italic
+To open the file in edit more double-click on the file when opening or on the
+file tab after opening. This prevents it from being replaced by the next preview
+file that is opened.
+
+To disable this in visual studio code all together:
+
+Go to the settings file
+    Click Ctrl + Shift + P to open the Commant Palette
+    Enter "Preferences: Open User Settings"
+
+Navigate to Workbench - Editor management and remove "Enable preview" 
+and "Enable preview from quick open"
+
+or
+
+Open the settings.json file and add
+"workbench.editor.enablePreview : false"
