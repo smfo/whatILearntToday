@@ -1,4 +1,5 @@
-Add to keybindings.json
+
+Add custom shortcuts to keybindings.json
 
 
 [
@@ -32,3 +33,21 @@ Add to keybindings.json
 		}
 	}
 ]
+
+
+Others:
+
+Ctrl + Alt + Left/Right //Move file to new split editor
+Ctrl + E                //Open file by name
+Ctrl + Tab              //Navigate split editor files
+Ctrl + Number           //Change split editor in focus
+Ctrl + B                //Close sidebar
+Ctrl + Alt + Click      //Open deffinition in split editor
+Alt + Shift + Up/Down   //Copy line up/down
+Alt + Up/Down           //Move line up/down
+Ctrl + Alt + Up/Down    //Add cursor up/below
+Ctrl + F2               //Add cursor to every occurrence of current word
+Ctrl + M                //Lists all current errors
+F11                     //Fullscreen
+Shift + F12             //Reference search
+F2                      //Rename symbol
