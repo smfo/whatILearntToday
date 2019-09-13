@@ -5,7 +5,6 @@ to git it will look like a brand new commit and the previous one will
 no longer be on the branch
 The metadata for these two commits will be different
 
-git commit --amend
 git commit --amend -m ""        //if a new commit message is desirable
 git commit --amend --no-edit    //amend to commit without changing the commit message
 
@@ -13,3 +12,6 @@ git commit --amend --no-edit    //amend to commit without changing the commit me
 NB! Do not amend to public commits! This is because other developers 
 might have based their work om the previous commit that will no longer 
 be on the current branch
+
+NB!! changes must be tracked --> new files must be added before using
+commit amend
