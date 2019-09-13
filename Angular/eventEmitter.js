@@ -15,3 +15,38 @@ this.delete.emit(value);
 public deleteValue(name: string){
     
 }
+
+
+//example
+
+@Component({
+    selector : 'child',
+    template : `
+        <button (click)="sendNotification()">Notify my parent!</button>
+    `
+})
+
+class Child {
+
+    @Output() notifyParent: EventEmitter<any> = new EventEmitter();
+    
+    sendNotification() {
+        this.notifyParent.emit('Some value to send to the parent');
+    }
+}
+
+
+
+@Component({
+    selector : 'parent',
+    template : `
+        <child (notifyParent)="getNotification($event)"></child>
+    `
+})
+
+class Parent {
+
+    getNotification(evt) {
+        // Do something with the notification (evt) sent by the child!
+    }
+}
