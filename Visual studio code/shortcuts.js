@@ -51,3 +51,6 @@ Ctrl + M                //Lists all current errors
 F11                     //Fullscreen
 Shift + F12             //Reference search
 F2                      //Rename symbol
+Ctrl + K + C            //Comment out
+Ctrl + K + U            //Uncomment
+(Ctrl + K) + S          //Save all files
