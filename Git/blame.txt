@@ -1,0 +1,38 @@
+
+git blame <filename>
+
+Prints the entire file with a line by line overview of
+the commit id, author, timestamp line number and line content
+
+Example: git blame ./Angular/eventEmitter.js
+
+6bc9b344 (Synne Fog 2019-09-12 17:01:14 +0200 15) public deleteValue(name: string){
+6bc9b344 (Synne Fog 2019-09-12 17:01:14 +0200 16)
+6bc9b344 (Synne Fog 2019-09-12 17:01:14 +0200 17) }
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 18)
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 19)
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 20) //example
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 21)
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 22) @Component({
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 23)     selector : 'child',
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 24)     template : `
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 25)         <button (click)="sendNotification()">Notify my parent!</button>
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 26)     `
+96afe015 (Synne Fog 2019-09-13 13:31:02 +0200 27) })
+
+options:
+
+git blame -L 1,8 <filename>         prints line 1 through 8
+Restrict the lines being printed                
+
+git blame -e <filename>
+Display the authors email instead of username   
+
+git blame -M <filename>
+For moved or copied lines within the same file, display the original author
+
+git blame -C <filename>
+For moved or copied lines from OTHER files, display the original author
+
+git blame -w <filename>
+Ignores whitespace changes
