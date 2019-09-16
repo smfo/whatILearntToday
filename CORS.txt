@@ -1,2 +1,42 @@
 
 Cross-origin resource sharing
+
+Same-origin policy: enforces that documents that interact with each other have the same origin
+ex. a document hosted on server A can only interact with other documents also on server A
+
+An origin is made up of three parts: the protocol (https://), the host (www....com)
+and the port number. The same-origin policy require that all parts of the protocol match
+
+http://www.example.com/foo-bar.html
+http://www.example.com/hello-world.html
+https://www.en.example.com/hello.html
+
+The last url has a different protocol (https) and host (en.example.com) from the first two
+
+This policy is quite strict. The cross-origin policy is a mix of the same-origin policy
+and not having a security policy
+
+Cross-origin request: a request for a resource (ex. image or font) from outside the origin
+It is CORS (cross-origin resource sharing) that manages these requests
+CORS specify who can access the servers assets and which HTTP request methods are 
+allowed from external resources. DELETE, PATCH and PUT will typically be denied, while 
+GET is allowed
+
+Http header: a piece of information associated with a request or a response
+CORS manages cross-origin requests by adding new HTTP headers to the standard list of headers
+
+Access-Control-Allow-Origin
+Access-Control-Allow-Credentials
+Access-Control-Allow-Headers
+Access-Control-Allow-Methods
+Access-Control-Expose-Headers
+Access-Control-Max-Age
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Origin
+
+Access-Control-Allow-Origin
+allow servers to specify how their resources are shared with external domains.
+When a request is made the server will respond with a value for the access-control-allow-origin header
+If the values is #, this means the server will share the requested resources with any domain on
+the internet. Other times the value is set to a particular domain or list of domains
