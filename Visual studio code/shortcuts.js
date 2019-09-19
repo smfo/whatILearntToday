@@ -54,3 +54,4 @@ F2                      //Rename symbol
 Ctrl + K + C            //Comment out
 Ctrl + K + U            //Uncomment
 (Ctrl + K) + S          //Save all files
+Alt + Left				//Go to previous location

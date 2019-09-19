@@ -40,3 +40,15 @@ allow servers to specify how their resources are shared with external domains.
 When a request is made the server will respond with a value for the access-control-allow-origin header
 If the values is #, this means the server will share the requested resources with any domain on
 the internet. Other times the value is set to a particular domain or list of domains
+
+
+this.http.get(url, { headers: this.headers });
+
+private createHeaders(): HttpHeaders {
+	let headers = new HttpHeaders({
+		// 'Content-Type': 'application/json; charset=utf-8',
+		Authorization: 'Bearer ' + this.oAuthService.getAccessToken(),
+		'Access-Control-Allow-Origin': '*'
+	});
+	return headers;
+}
