@@ -1,8 +1,8 @@
 
-//Whenever the mat-radoi-group changes onChange is called with the event as input. In this example selectedUserRole is updated to $event.value as well
+//Whenever the mat-radio-group changes onChange is called with the event as input. In this example selectedUserRole is updated to $event.value as well
 <mat-radio-group [(ngModel)]="selectedUserRole" class="radio-button-with-space" (change)="onChange($event)">
 		<mat-radio-button style="display: block;" *ngFor="let role of userRoles" [value]="role">
-			<span class="float-left pr-1"> {{ role.name }} {{ role.type === 0 ? '(' + role.id + ')' : '' }} </span>
+			<span class="float-left pr-1"> {{ role.name }}</span>
 		</mat-radio-button>
 </mat-radio-group>
 

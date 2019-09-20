@@ -13,7 +13,8 @@ NB! Never rebase public history. Because the commits are replaced with
 new ones, it will look like a part of the project history vanished
 
 
-git rebase -i /-interactive <base>
+git rebase -i /-interactive <base/commit name>
+git rebase -i HEAD~<number>         //rebase this many commits
 
 Gives the option to alter individual commits in the process of rebasing.
 Allows for cleaning history by removing, splitting and altering existing
