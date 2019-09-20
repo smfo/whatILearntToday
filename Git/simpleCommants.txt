@@ -1,0 +1,7 @@
+
+//Exit bash editor
+ESC to get out of editing
+:q! + enter
+
+//View all branches
+git branch -a
