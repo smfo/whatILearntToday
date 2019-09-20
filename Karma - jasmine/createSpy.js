@@ -1,2 +1,0 @@
-
-//// createSpy() and createSpyObject()
