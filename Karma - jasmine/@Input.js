@@ -47,9 +47,8 @@ https://medium.com/@AikoPath/testing-angular-components-with-input-3bd6c07cfaf6
     beforeEach(() => {
       testHostFixture = TestBed.createComponent(TestHostComponent);         //notice that we create the TestBed and fixture
       testHostComponent = testHostFixture.componentInstance;                //for the PARENT component!
-      testHostFixture.detectChanges();
     });
-  
+
     it('should show TEST INPUT', () => {
         testHostComponent.setInput('test input');
         testHostFixture.detectChanges();
