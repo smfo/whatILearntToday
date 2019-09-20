@@ -1,6 +1,8 @@
 
 Rebasing moves a sequence if commits to a new base commits
 
+gir rebase <base>
+
 Rebasing changes the base of a the commit sequence from one commit to 
 another, making it  appear that the sequence was created from a different 
 commit. Even though the sequence looks the same, it consists of entierly 
