@@ -5,10 +5,37 @@ creates a new commit that undoes everything in the chosen commit
 the revert and the reverted commit will be visible in the history,
 but we can continue using the same branch as before
 
+
+--no-edit  will not open the editor to edit the commit message
+--no-commit (-n) will not commit the revert but add it to the staging index and working directory
+
+
 git reset --hard <commit>
+
 resets the branch to the chosen commit. Newer commits no longer exist
 in the commit history. Continue work as if the mistakes never happened
 A solution for local commits, not public once
 
 
-https://www.atlassian.com/git/tutorials/undoing-changes
+
+vs:
+Revert reverts the changes of a SINGLE commit. the rest of the project is not reverted back
+to the previous state ( relevant if not reverting the latest commit).
+Unlike reset, revert does not change the project history, which also makes it safe for public commits.
+It is also able to target individual commits at any point in the history, whereas reset only can 
+work backwards from the current commit.
+
+
+git reset levels
+--soft – The staged snapshot and working directory are not altered in any way.
+--mixed – The staged snapshot is updated to match the specified commit, but the working directory is not affected. This is the default option.
+--hard – The staged snapshot and the working directory are both updated to match the specified commit.
+
+
+
+Single files - usefull to inspect older versions of a file
+It is possible to reset and chechout only specific files.
+Reset: this will unstage the chosen file and the changes it contains will be present in the working directory.
+Checkout: this updates the working directory instead of the stage, like reset does. By checking out a file, this undoes ALL 
+changes done to the file after the chosen commit, unlike revert that only undoes the changes from this specific commit.
+The command is similar to git reset --hard, only executed on one file.
