@@ -1,0 +1,5 @@
+
+Augury - chrome extention to visualize Angular applications at runtime. Component connections etc
+Postman - query a database directly without frontend
+Kibana
+Tortoise git - git tool
