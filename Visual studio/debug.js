@@ -22,5 +22,8 @@
 // While debugging, rightclick on an object and choose "Add watch". The current value of the chosen object will be available
 // in the watch window regardless of the value being available in that scope or not
 
+// Quick watch 
+// Allows for expressions creation, with access to all the variable values at the given point in the code
 
 Shift + F11                 //Still running in debug, runs until returning from current function
+Shift + F9                  //Running in debug, opens quickwatch (with selected element if any)
