@@ -25,8 +25,8 @@ static passwordValidator(form: FormGroup){
 </mat-error>
 
 //HTML to display error message. Checking the FORM not the control for errors
-/*BUT! an error will only display if a control says theres an issue, so need to 
-make the control aware of the forms error.
+/*BUT! an error will only display if a CONTROL says theres an issue, so need to 
+make the control aware of the FORMS error.
 Errors are shown if (the controler! is invalid and either touched) or (if the form is submitted).
 To display the error when the form itself is invalid, we need to define a custom ErrorStateMatcher
 for the control.
@@ -35,11 +35,12 @@ An ErrorStateMatcher is a class that defines when the control should display an 
 
 class CrossFieldErrorMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-        return (control.dirty || form.dirty) && form.invalid
+        return (control.dirty || control.parent.dirty) && control.parent.invalid;
     }
 }
 
-//form.dirty = control.parent.dirty
+//example of errorStateMatcher. this matcher says that errors are displayed if the control itself or the parent is dirty
+//and the parent is invalid. the default settings still apply, so errors will also be shown is the control is invalid
 
 //The error state matcher is added to the input of the desiered form control(s)
 
