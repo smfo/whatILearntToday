@@ -56,3 +56,8 @@ Ctrl + K + U            //Uncomment
 (Ctrl + K) + S          //Save all files
 Alt + Left				//Go to previous location
 Ctrl + G 				//Navigate to specific line number in code
+
+Ctrl + Shift + H 		//Replace occurence in all files edit window
+/*Replace in all files -> click the icon next to the replace String
+Replace all occurences in a file -> click the icon next to the file name
+Replace one single occurence -> click the icon nex to the individual change*/
