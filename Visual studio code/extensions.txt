@@ -1,0 +1,3 @@
+Prettier - formatting
+Auto Rename Tag - automatically edits the tag pair (HTML)
+TSLint - lint check
