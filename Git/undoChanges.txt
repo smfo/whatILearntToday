@@ -32,6 +32,8 @@ git reset levels
 --hard – The staged snapshot and the working directory are both updated to match the specified commit.
 
 
+git reset --soft HEAD^ resets the local commit to the working tree
+
 
 Single files - usefull to inspect older versions of a file
 It is possible to reset and chechout only specific files.
