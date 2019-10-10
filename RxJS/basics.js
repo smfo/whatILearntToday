@@ -10,8 +10,10 @@ this.createUser(
     )
 );
 
-// tap: when placed in a pipe tap can performe side effects on the observed data without modifying the steam in any way. Acts similar to then()
+// tap: when placed in a pipe tap can performe side effects on the observed data without 
+// modifying the steam in any way. Acts similar to then()
 
-//filter
+//filter: filter the source observable and only emitts those that satisfy a specific predicate
 
-//map
+//map: applies a gives project function to each value emitted by the source observable, and
+// emits the resulting values as an observable
