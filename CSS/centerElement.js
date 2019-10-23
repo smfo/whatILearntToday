@@ -1,3 +1,51 @@
 https://www.freecodecamp.org/news/how-to-center-things-with-style-in-css-dc87b7542689/
 
-text align: centers the text, poem style, but that's not exactly what we want
+text align: centers the text, poem style, but that's not exactly what we want for paragraphs
+using the text-align: center class
+for centering of divs: enclos the desiered div with a parent element (container), set text-aligh on the
+parent component and display: inline-block on the div itself
+.blue-square-container {
+    text-align: center;
+  }
+.blue-square {
+    background-color: #0074D9;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+
+Margin auto: apply margin: 0 auto, this works as long as there is a defined width, and there is need 
+for a container
+tips: setting either just auto left or auto right pushes the element to one side of the screen 
+.yellow-square {
+    background-color: #FFDC00;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+absolute positioning: place the element wherever we want on the pageXOffset, however, thos removes the
+element from the flow of the page, this can cause overlapping of elements 
+for horizontal centering: set position: absolute, left:50%, and a margin-left with half of 
+the element's width
+however, this might put the left edge in the center of the window
+.green-square {
+    background-color: #3D9970;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+  }
+
+transform/translate: centers horizontally and vertically
+this method does not require margins, as the previous method and is responsive
+.red-square {
+    background-color: #FF4136;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
