@@ -8,5 +8,5 @@ ngOnChanges(){
     }) 
 }
 
-// This will do somehing every time the value of 'value' onChanges
+// This will do somehing every time the value of 'value' changes
 // This way, we don't get spammed with outputs whenever any input in the component changes
