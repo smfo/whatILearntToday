@@ -1,9 +1,11 @@
 
 Add custom shortcuts to keybindings.json
+Ctrl + Shift + P
+Preferences: Open Keyboard Shortcuts (JSON)
 
 
 [
-    //log with comment
+    //log with comment + (value)
 	{
 		"key": "ctrl+shift+c",
 		"command": "editor.action.insertSnippet",
@@ -13,7 +15,7 @@ Add custom shortcuts to keybindings.json
 		}
 	},
 
-    //log without comment
+    //log without comment + (value)
 	{
 		"key": "ctrl+shift+l",
 		"command": "editor.action.insertSnippet",
@@ -23,13 +25,22 @@ Add custom shortcuts to keybindings.json
 		}
 	},
 
-    //this.
+    //this.(value)
 	{
 		"key": "ctrl+shift+t",
 		"command": "editor.action.insertSnippet",
 		"when": "editorTextFocus",
 		"args": {
 			"snippet": "this.${TM_SELECTED_TEXT}$1"
+		}
+	},
+	//tap(res => console.log("res", res))
+	{
+		"key": "ctrl+shift+t ctrl+shift+t",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "tap(res => console.log('res', res)),"
 		}
 	}
 ]

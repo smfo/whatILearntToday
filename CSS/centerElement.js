@@ -35,7 +35,7 @@ however, this might put the left edge in the center of the window
     height: 100px;
     position: absolute;
     left: 50%;
-    margin-left: -50px;
+    margin-left: 50px;
   }
 
 transform/translate: centers horizontally and vertically
@@ -47,5 +47,5 @@ this method does not require margins, as the previous method and is responsive
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(50%, 50%);
   }
