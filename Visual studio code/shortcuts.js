@@ -36,7 +36,7 @@ Preferences: Open Keyboard Shortcuts (JSON)
 	},
 	//tap(res => console.log("res", res))
 	{
-		"key": "ctrl+shift+t ctrl+shift+t",
+		"key": "ctrl+shift+p ctrl+shift+t",
 		"command": "editor.action.insertSnippet",
 		"when": "editorTextFocus",
 		"args": {
@@ -64,9 +64,10 @@ Shift + F12             //Reference search
 F2                      //Rename symbol
 Ctrl + K + C            //Comment out
 Ctrl + K + U            //Uncomment
-(Ctrl + K) + S          //Save all files
+Ctrl + K S          	//Save all files
 Alt + Left				//Go to previous location
 Ctrl + G 				//Navigate to specific line number in code
+Ctrl + R 				//Open all recent projects
 
 Ctrl + Shift + H 		//Replace occurence in all files edit window
 /*Replace in all files -> click the icon next to the replace String
