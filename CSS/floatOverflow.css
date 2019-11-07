@@ -1,0 +1,77 @@
+
+/* Overflow: controls what happens to contant that istoo big to fit into its area
+- visible: default, the content is not clipped and renders outside the element's box 
+- hidden: the overflow is clipped and the excess content is invisible
+- scroll: the overflow is clipped and a scrollbar is added to view the excess content 
+- auto: timilar to scroll, however only adds scrollbar if necessary */
+
+/* Float: specify how an element should float, used for positioning and formating
+can be left, right, none (default, the element does not float. will be displayed where
+it occurs in the text), inherit */
+
+/* Clear: specify which elements can float besides the cleared element and on which side 
+- none: default, allows floating elements on both sides
+- left: no floating elements allowed on the left side 
+- right: no floating elements allowed on the right side 
+- both: no floating elements allowed on either side 
+- inherit */
+
+/* Overflow hidden with float:
+if all the elements inside an element are float, the elements height collapses to 0px.
+This is because as float elements they are outside of normal flow 
+this means that the parent element will no longer take up any space, and the float will
+continue for elements future down in the file. To prevent this, add  */
+.parent{
+overflow: hidden; /*anything but visible*/
+}
+/* to the parent element. the parent then "reappears" with its original size */
+
+/* No overflow: */
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#news">News</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+<p>Notice the collapsed ul - no background-color visible, collapsed border and this paragraph treats the lis as regular floats  </p>
+<br>
+
+/* With overflow: hidden */
+<ul id="two">
+<li><a href="#home">Home</a></li>
+<li><a href="#news">News</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+<p>the ul reappeared - it now contains the child li's - the float is cleared</p>
+
+ul{
+    list-style-type:none;
+    margin:0; padding:0;
+    background-color:#dddddd;
+    border:2px solid red;
+}
+li{
+    float:left;
+}
+a{
+    display:block;
+    width:60px;
+    background-color:#555;
+    color:white;
+}
+p{
+    margin:0;
+    outline:2px dotted blue;
+}
+#two{
+    clear:both;     /* this makes sure the float does not continue to the second example */
+    overflow:hidden;
+}
+
+/* Another posibility is to use clear 
+Add clear to the element below the floating elements and match the clear to the float 
+in the example above this would be added instead of overflow: hidden */
+p{
+    clear: left
+}
