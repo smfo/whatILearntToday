@@ -1,0 +1,5 @@
+
+
+open the command prompt (Windows + R   cmd)
+type:  reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+or for the exact version: reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
