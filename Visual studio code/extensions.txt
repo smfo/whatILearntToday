@@ -1,3 +1,6 @@
 Prettier - formatting
 Auto Rename Tag - automatically edits the tag pair (HTML)
 TSLint - lint check
+CSS Peek - alow goTo and peek for css slasses
+GitLense - Visualiza code authorship
+IntelliSense for CSS class names in HTML - CSS class name autocomplete
