@@ -6,6 +6,9 @@
 //   Attribute directives - change the appearence or behavior of an element, component or another directive
 
 
+// directives take an already existing element and add logic to it 
+
+
 // Attribute directive
 // are used as attributes of elements. the built-in NgStyles directive can false.ex. change several element 
 // styles at the same time 
@@ -112,3 +115,4 @@ export class HighlightDirective {
 <p [appHighlight]="color" componentDefaultColor="violet">
   Highlight me too!
 </p>
+
