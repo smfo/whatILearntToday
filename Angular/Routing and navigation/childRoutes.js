@@ -13,7 +13,7 @@
   })
   export class HeroesRoutingModule { }
 
-//child component
+//child module
 @NgModule({
     imports: [
       CommonModule,
