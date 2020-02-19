@@ -1,0 +1,63 @@
+
+
+/* @media is used to detect the size of the screen being showed and adapt the display design
+accordingly 
+it can be used to check
+- width and hight of the viewport
+- width and hight of the device
+- orientation (tablet and phone)
+- resolution
+*/
+
+
+@media not|only mediatype and (mediafeature) and|or|not (mediafeature) {
+    CSS-Code;
+}
+
+/* mediatype: print, screen, speech
+there are many media features to choose from, the most common are 
+min/max-width, orientation (landscape or portrait), min/max-height, width, height */
+
+
+/* Use mediaqueries to set the background-color to lavender if the viewport is 800 pixels wide or 
+wider, to lightgreen if the viewport is between 400 and 799 pixels wide. If the viewport is smaller 
+than 400 pixels, the background-color is lightblue: */
+
+body {
+    background-color: lightblue;
+  }
+
+  /* for all screens larger than 400px */
+  @media screen and (min-width: 400px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
+  
+  /* for all screens larger than 800px */
+  @media screen and (min-width: 800px) {
+    body {
+      background-color: lavender;
+    }
+  }
+
+
+/* The same example, but using max-width */
+
+  body {
+    background-color: lavender;
+  }
+
+  /* for all screens smaller than 400px */
+  @media screen and (max-width: 400px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  
+  /* for all screens smaller than 800px */
+  @media screen and (max-width: 800px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
