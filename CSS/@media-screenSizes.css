@@ -10,9 +10,11 @@ it can be used to check
 */
 
 
-@media not|only mediatype and (mediafeature) and|or|not (mediafeature) {
+@media not|only mediatype and (mediafeature) and|or (use a comma)|not (mediafeature) {
     CSS-Code;
 }
+
+/* @media (min-width: 1024px), (max-width: 767px)  for screens larger than 1024px and smaller than 767px */
 
 /* mediatype: print, screen, speech
 there are many media features to choose from, the most common are 

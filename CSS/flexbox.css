@@ -45,3 +45,5 @@ between the next item because that next item has its own spacing that applies.
     /* should some of the elements get more space than others */
     flex-shrink: <number>;
 }
+
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
