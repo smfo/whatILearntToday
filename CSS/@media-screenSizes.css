@@ -63,3 +63,9 @@ body {
       background-color: lightgreen;
     }
   }
+
+
+  /* CSS for internet explorer */
+  @media all and (-ms-high-contrast: none) {
+
+  }
