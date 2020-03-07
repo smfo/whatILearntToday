@@ -1,0 +1,18 @@
+
+.net binaries kan enkelt dekompileres
+
+kildekode kan inneholde hemmeligheter
+gjerne ikke sikkerhetstested før applikasjonen slippes
+
+verktøy:
+dnSpy, ilSPY, jd-gui(Java), jadx-gui (Android)
+
+hvordan forsvare seg:
+ikke publiser binærfiler
+obfukering gjør det vanskeligere å tolke koden
+fjern bruk av hemmeligheter dersom binærfilen må publisers
+
+verktøy for obfuskering:
+dotfuscator
+deploy.net
+dotNet Protector

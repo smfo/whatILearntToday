@@ -1,0 +1,20 @@
+
+ting og triks for å sikre systemer
+
+127.0.0.1 vs 0.0.0
+127.0.0.1 er localhost, kun tilgjengelig for den maskinen
+0.0.0.0 kjøres for alle interfaces på den maskinen. Alle maskinene i nettet 
+rundt kan aksesser det som kjøres her. Har de sårbarheter kan maskinen hakkes
+Er ikke vanntett, men mye bedre
+netstat ano i cmd -- hva er netstat
+
+Firewalls
+Bruk lokal firewall, ikke tillat trafikk inn på maskinen når det ikke er nødvendig
+Enterårise-firewall blokkerer typisk ikke trafikk mellon ulike klienter
+
+
+Hva er problemet?
+Hemmeligheter: passord, nøkler, ting brukt til kryptering
+Løsning: keyvaults (isolert, sentralisert, enkelt å rullere på hemmeligheter (bytte passord etc))
+
+
