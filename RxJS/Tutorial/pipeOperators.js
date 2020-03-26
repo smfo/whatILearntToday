@@ -2,7 +2,7 @@
 // introduction to operators
 
 import { pipe, of, fromEvent, observable, from } from "rxjs"
-import { map, pluck, filter, mapTo, reduce, scan } from "rxjs/operators"
+import { map, pluck, filter, mapTo, reduce, scan, tap } from "rxjs/operators"
 
 // pipable: functions that are ran inside the pipe() operator
 // applying operators does not change the existing observable, the result has to be saved in a new variable
@@ -81,3 +81,17 @@ from(numbers).pipe(
     }, 0)
 ).subscribe(console.log)
 //this retruns a new total after every emitted value
+
+
+// tap: ferformes sideeffects that does not affect the output stream, it spyes on the stream
+// tap(value => function(next, error, complete))
+// normally used for debugging
+
+tap({
+    next: value => console.log('after', value),
+    complete: () => console.log('done'),
+    error: error => console.log(error)
+})
+
+// or just provide a next function
+tap(value => console.log('after', value))
