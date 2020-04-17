@@ -5,4 +5,7 @@ Kibana
 Tortoise git - git tool
 Fiddler - works similarly to "network" in chrome but displays the calls between every server on the computer
         HTTP debugging proxy server application. Captures HTTP/S traffic and logs it
-Eye dropper - chrome extention to get the colorcode of elements on websitesvi
+Eye dropper - chrome extention to get the colorcode of elements on websites
+npm-link - allows for testing of packages in local projects without building them
+CORS unblock - chrome plugin 
+Chromevox - chrome extention to read text on webpages, universal design
