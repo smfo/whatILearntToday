@@ -1,5 +1,5 @@
 
-/* Overflow: controls what happens to contant that is too big to fit into its area
+/* Overflow: controls what happens to content that is too big to fit into its area
 - visible: default, the content is not clipped and renders outside the element's box 
 - hidden: the overflow is clipped and the excess content is invisible
 - scroll: the overflow is clipped and a scrollbar is added to view the excess content 
