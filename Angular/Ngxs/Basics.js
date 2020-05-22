@@ -9,7 +9,7 @@
 // - Store: the global state CredentialsContainer, action dispatcher and selector
 // - Actions: classes describing the action to take and its associated metadata
 // - State: Class definition of the state
-// - Selects: State slice selectors
+// - Selects(reducer): State slice selectors
 
 
 // Component dispatching an action ->
@@ -113,7 +113,7 @@ export class FeedAnimals {
 // commands are actions that tell the app to do something, usually triggered by events
 // a command name contains 3 parts. for the example above
 // - a context as to where the command came from [Zoo]
-// - a verb decribing that the entity should do, Feed animals
+// - a verb decribing that the entity should do, Feed
 // - the entity that will be acted upon, Animals
 
 // Events are actions that have already happened that needs to be reacted to,
@@ -151,11 +151,11 @@ export namespace Todo {
 // states are classes that define a state container
 // a state container holds all the state of the application. it is not possible to change the state directly,
 // changes have to be described by plain objects, actions.
-// with the same actions in the same OverconstrainedError, the same state will be achived
+// with the same actions in the same order, the same state will be achived
 
 // they contain decorators to describe metadata and action mappings
 // the state decorator defines metadata about the state and may include
-// name of the state slice (required and uniquie), a default set of objects or array for the state slice,
+// name of the state slice (required and unique), a default set of objects or array for the state slice,
 // child sub state associations
 import { State } from '@ngxs/store';
 
@@ -248,7 +248,7 @@ export class ZooState {
 @Action(FeedZebra)
 feedZebra(ctx: StateContext<ZooStateModel>, action: FeedZebra) {
   const state = ctx.getState();
-  ctx.patchState({ //patchState only passes the peoperties to the wanted state
+  ctx.patchState({ //patchState only passes the properties to the wanted state
     zebraFood: [
       ...state.zebraFood,
       action.zebraToFeed,
