@@ -1,0 +1,90 @@
+
+aria-label: used for elements that does not have visual text on screen. defines a 
+string that labels the current element
+aria-labelby: used if there is a visible text label for the element
+
+where to use:
+icons that are not just visual (they can be clicked on)
+input fields (not all screen readers/browsers read placeholders)
+
+
+Tab and keyup.enter
+To be able to read the aria-label element, it must be possible to reach it using tab. If it isn't already add tabindex="0". 
+If it should be possible to click the element, but it is not already a button or a form tag, add (keyup.enter)="what should happen"
+
+
+
+Roles
+role="menu"
+role="menuitem"
+If the element does not get picked up by the screen reader it helps to give it a role
+The role "menu" groups several "menuitems" together, however the tag that is assigned this role, is not
+read by the screen reader.
+<ul role="menu" aria-label="this text is not read" aria-labelby="'Answer alternatives'">
+    <li role="menuitem" aria-label="'alternative 1'"></li>
+    <li role="menuitem" aria-label="'alternative 2'"></li>
+    <li role="menuitem" aria-label="'alternative 3'"></li>
+</ul>
+
+
+alertDialog and alert
+Used on alerts that are displayed and suddenly need the users attention. applies both the alerts that suddenly appear and 
+alerts that are on the page when it is loaded
+alertDialog should be used if the alert also provides interactive controls (forms or buttons)
+
+example of alertdialog
+<div role="alertdialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+    <div role="document" tabindex="0">
+      <h2 id="dialog1Title">Your login session is about to expire</h2>
+      <p id="dialog1Desc">To extend your session, click the OK button</p>
+      <button>OK</button>
+    </div>
+  </div>
+
+
+
+aria-hidden="true"
+used on elements that are to be hidden from aria, their text/label is not read by the screen reader
+
+
+
+Using variables:
+to use a variable with an aria-tag simply put attr. in front of the tag
+attr.aria-tag
+Example:
+
+const ariaLable = "Back to homepage"
+<div tabindex="0" role="menuitem" (keyup.enter)="backToHomePage()" (click)="backToHomePage()" 
+attr.aria-label="{{ariaLabel}}"></div>
+
+
+
+Expandable panels
+the user needs to be made aware that expandable panels exist and if the are expanded or collapsed
+this is used by adding a aria-expanded tag
+
+[attr.aria-expanded] is used to be able to use the variable collapsed
+aria-controls says that this section controls the element by id collapsedFilter 
+<div tabindex="0" [attr.aria-expanded]="!collapsed" aria-controls="collapsedFilter" id="subHeader" role="menuitem"
+	attr.aria-labelBy="{{ model.subCategoryMenuLabel | translate}}" (keyup.enter)="cardClicked(model.aggregationName)"
+	class="cursor-hand flex-container" (click)="cardClicked(model.aggregationName)">
+	<mat-icon *ngIf="collapsed">keyboard_arrow_right</mat-icon>
+	<mat-icon *ngIf="!collapsed">keyboard_arrow_down</mat-icon>
+	{{ model.subCategoryMenuLabel | translate }}
+	<mat-icon class="flag" [inline]="true" *ngIf="(isActive | async)" title="{{ 'cFilterActiveText' | translate }}">
+		fiber_manual_record</mat-icon>
+</div>
+this element is controlled by the element by id subHeader
+<div id="collapsedFilter" role="region" aria-labelledby="subHeader" class="collapse"
+	[ngClass]="{ collapse: collapsed }">
+	<app-aggregation-filter-checkboxes (filterChanged)="filterChanged($event)" [model]="model">
+	</app-aggregation-filter-checkboxes>
+</div>
+
+
+https://stackoverflow.com/questions/42658800/how-to-bind-dynamic-data-to-aria-label
+https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-describedby_attribute
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-labelledby_attribute
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions

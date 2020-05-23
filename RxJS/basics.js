@@ -1,4 +1,12 @@
 
+// What is rxjs
+// library based on observable manipulation
+// stream of data that will be delivered over time
+// observables are lazy and only execute after something has subscribed to it
+
+npm install --save rxjs
+
+
 // pipe: stitches together functional operators to a chain. old syntax observable.filter().map().scan()
 // however, every rcjs operator is a standalone function, not an observale's method, therefore pipe is needed
 
