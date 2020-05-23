@@ -48,3 +48,6 @@ function Text(props){
     </div>
     )
   }
+
+//   Components must always start with a capital letter, otherwise the element is passed to React.createElement
+//   Custom components are passed to React.createElement(Foo)

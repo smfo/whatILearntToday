@@ -53,3 +53,17 @@ function Text(props){
 }
       
     <Text values={props}/>  //"nesting" props
+
+
+// immutability
+// props should not be changed directly
+var player = {score: 1, name: 'Jeff'};
+
+var newPlayer = Object.assign({}, player, {score: 2});
+// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+
+// advantages
+// - complex features become simpler (time travel etc)
+// - detecting changes
+// - determining when to re-render: helps building pure react components
+// being able to detect changes helps determining when to re-render a component
