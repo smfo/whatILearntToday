@@ -12,4 +12,5 @@ Chrome extension
 CORS unblock - chrome plugin 
 Eye dropper - chrome extension to get the colorcode of elements on website
 React developer tool - chrome extension to inspect component trees and profilers
+Grepper - displays code answers to search saved by other developers or yourself
 

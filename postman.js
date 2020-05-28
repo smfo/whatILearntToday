@@ -41,6 +41,8 @@ to a collaboration project
 // Run all requests and tests in a collection
 // chose which environment to use and how many iterations to do
 
+// Documentation:
+// Click on the arrow belonging to the collection, then chose "view in web"
 
 Resources
 bootcamp in postman
