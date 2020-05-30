@@ -15,18 +15,18 @@ const classes = ["square", props.bold ? "winner" : ""].join(" ");
 }
 ```
 
-Classnames is a dependency library that provides conditional class selection in React\
-install: `npm install classnames --save`  
-in js: `import cn from 'classnames'`
+Classnames is a dependency library that provides conditional class selection in React.\
+Install: `npm install classnames --save`\
+In js: `import cn from 'classnames'`
 
-cn takes n arguments defined as css classes an returns a string of the joined arguments. <br/>
-general classes: `className={cn("btn", "h-100")}`
-conditional classes: `className={cn({"btn-green": this.state.selected})}`
+Cn takes n arguments defined as css classes an returns a string of the joined arguments.\
+General classes: `className={cn("btn", "h-100")}`\
+Conditional classes: `className={cn({"btn-green": this.state.selected})}`
 
-conditional classes has to be defined as objects where the key is  the class name as a string,
+Conditional classes has to be defined as objects where the key is  the class name as a string,
 and the value returns a boolean, the condition.
 
-The example below combine general classes and conditional classes,
+The example below combine general classes and conditional classes:
 
 ```javascript
 import cn from 'classnames';
