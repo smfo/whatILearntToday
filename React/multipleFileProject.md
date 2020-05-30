@@ -1,7 +1,7 @@
 
 # How to write a probram using separated files for different components
 
-// Make the component available to other components using either
+Make the component available to other components using either
 
 ```javascript
 function Square(props) {
@@ -15,7 +15,7 @@ function Square(props) {
 
 export default Square;
 
-// or
+or
 
 ```javascript
 export default function Square(props) {
@@ -27,7 +27,7 @@ export default function Square(props) {
 }
 ```
 
-// import this component to other project using 
+import this component to other project using 
 
 ```javascript
 import Square from './square.js'
