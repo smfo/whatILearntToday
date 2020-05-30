@@ -1,5 +1,5 @@
 
-#ngClass in React
+# ngClass in React
 
 The javascript way of changing css classes in React depending on conditions
 
@@ -15,11 +15,11 @@ const classes = ["square", props.bold ? "winner" : ""].join(" ");
 }
 ```
 
-Classnames is a dependency library that provides conditional class selection in React
-install: `npm install classnames --save`
+Classnames is a dependency library that provides conditional class selection in React\
+install: `npm install classnames --save`  
 in js: `import cn from 'classnames'`
 
-cn takes n arguments defined as css classes an returns a string of the joined arguments.
+cn takes n arguments defined as css classes an returns a string of the joined arguments. <br/>
 general classes: `className={cn("btn", "h-100")}`
 conditional classes: `className={cn({"btn-green": this.state.selected})}`
 
