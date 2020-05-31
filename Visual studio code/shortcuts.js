@@ -34,6 +34,7 @@ Preferences: Open Keyboard Shortcuts (JSON)
 			"snippet": "this.${TM_SELECTED_TEXT}$1"
 		}
 	},
+
 	//tap(res => console.log("res", res))
 	{
 		"key": "ctrl+shift+p ctrl+shift+t",
@@ -41,6 +42,46 @@ Preferences: Open Keyboard Shortcuts (JSON)
 		"when": "editorTextFocus",
 		"args": {
 			"snippet": "tap(res => console.log('res', res)),"
+		}
+	},
+
+	//md javascript
+	{
+		"key": "ctrl+shift+j",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "```javascript ${TM_SELECTED_TEXT}$1 $2 ```"
+		}
+	},
+
+	//md html
+	{
+		"key": "ctrl+shift+h",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "```html ${TM_SELECTED_TEXT}$1 $2 ```"
+		}
+	},
+
+	//md css
+	{
+		"key": "ctrl+shift+cs",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "```css ${TM_SELECTED_TEXT}$1 $2 ```"
+		}
+	},
+
+	//md c#
+	{
+		"key": "ctrl+shift+c",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "```c#(${TM_SELECTED_TEXT}$1)$2 ```"
 		}
 	}
 ]

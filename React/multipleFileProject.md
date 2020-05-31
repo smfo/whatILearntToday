@@ -1,5 +1,5 @@
 
-# How to write a probram using separated files for different components
+# How to write a program using separated files for different components
 
 Make the component available to other components using either
 
@@ -11,9 +11,8 @@ function Square(props) {
         </button>
     );
 }
-```
-
 export default Square;
+```
 
 or
 
