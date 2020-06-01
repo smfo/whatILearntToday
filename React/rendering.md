@@ -1,22 +1,25 @@
 
+# Rendering
+To render a React element into a root DOME Node, pass both to ReactDOM.render()
 
-// To render a React element into a root DOME Node, pass both to ReactDOM.render()
-
+```javascript
 const element = <h1> Hello, world </h1>;
 ReactDOM.render(element, document.getElementById('root'));
+```
 
-// elements are immutable and children or attributes cannot be changed; the element represents the UI at a certain 
-// point in time 
-// most apps only call ReactDOM.render() once, and use states to update the UI after changes
+Elements are immutable and children or attributes cannot be changed. The element represents the UI at a certain 
+point in time.\
+Most apps only call ReactDOM.render() once, and use states to update the UI after changes
 
-// on update, the new element and its children are compated to their previous version, and only the necessary updates are made 
-// this brings the DOM to the desired state
+On update, the new element and its children are compared to their previous version, and only the necessary updates are made 
+to brings the DOM to the desired state.
 
 
-// conditional rendering
-// create components that encapsulate needed behavior, then render only some of them depending on the applications state
+### Conditional rendering
+Create components that encapsulate needed behavior, then render only some of them depending on the applications state.
 
-// renders either UserGreeting og GuestGreeting depending on the isLoggedIn value
+Renders either UserGreeting og GuestGreeting depending on the isLoggedIn value
+```javascript
 function UserGreeting(props) {
     return <h1>Welcome back!</h1>;
   }
@@ -39,11 +42,12 @@ function UserGreeting(props) {
     <Greeting isLoggedIn={false} />,
     document.getElementById('root')
   );
+```
 
 
-
-// variables can also be used to store elements 
-// in this case, only parts of the component LoginControl is conditionaly rendered, whereas the rest stay unchanged
+Variables can also be used to store elements.\ 
+In this case, only parts of the component LoginControl is conditionaly rendered, whereas the rest stay unchanged
+```javascript
   function LoginButton(props) {
     return (
       <button onClick={props.onClick}>
@@ -99,11 +103,43 @@ function UserGreeting(props) {
     <LoginControl />,
     document.getElementById('root')
   );
+```
 
+### if-else
+If-else statements can be used directly in JSX, `condition ? if true : else`.
 
-//   inline if using &&
+Used for small elements in the code
+```javascript
+render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    return (
+      <div>
+        The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
+      </div>
+    );
+  }
+```
 
+Used for larger expressions
+```javascript
+  render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    return (
+      <div>
+        {isLoggedIn
+          ? <LogoutButton onClick={this.handleLogoutClick} />
+          : <LoginButton onClick={this.handleLoginClick} />
+        }
+      </div>
+    );
+  }
+```
 
+### Inline if using &&
+
+Use an if statement inline in JXS instead og the `condition ? if true : else` syntax, by adding
+ `condition &&`. The element will render if the condition is true. If it is false nothing will render in it's place.
+```javascript
   function Mailbox(props) {
     const unreadMessages = props.unreadMessages;
     return (
@@ -125,37 +161,14 @@ function UserGreeting(props) {
     <Mailbox unreadMessages={messages} />,
     document.getElementById('root')
   );
+```
 
+### Prevent rendering
+To prevent a component from rendering, return null.\
+This does not affect the fiering of the component's lifecycle mothods.
 
-//   if-else
-// used for small elements in the code
-render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    return (
-      <div>
-        The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
-      </div>
-    );
-  }
-
-//   used for larger expressions
-  render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    return (
-      <div>
-        {isLoggedIn
-          ? <LogoutButton onClick={this.handleLogoutClick} />
-          : <LoginButton onClick={this.handleLoginClick} />
-        }
-      </div>
-    );
-  }
-
-
-//   prevent rendering
-// to prevent a component from rendering, return null
-// this does not affect the fiering of the component's ligecycle mothods
-// ex. componentDidUpdate will still be called
+ex. componentDidUpdate will still be called
+```javascript
 function WarningBanner(props) {
     if (!props.warn) {
       return null; // the component isn't rendered even though it is rendered by the Page component
@@ -168,33 +181,33 @@ function WarningBanner(props) {
     );
   }
 
-  class Page extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {showWarning: true};
-      this.handleToggleClick = this.handleToggleClick.bind(this);
-    }
-  
-    handleToggleClick() {
-      this.setState(state => ({
-        showWarning: !state.showWarning
-      }));
-    }
-  
-    render() {
-      return (
-        <div>
-          <WarningBanner warn={this.state.showWarning} /> //WarningBanner is always shown to render here
-          <button onClick={this.handleToggleClick}>
-            {this.state.showWarning ? 'Hide' : 'Show'}
-          </button>
-        </div>
-      );
-    }
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showWarning: true};
+    this.handleToggleClick = this.handleToggleClick.bind(this);
   }
-  
-  ReactDOM.render(
-    <Page />,
-    document.getElementById('root')
-  );
-  Try it on CodePen
+
+  handleToggleClick() {
+    this.setState(state => ({
+      showWarning: !state.showWarning
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <WarningBanner warn={this.state.showWarning} /> //WarningBanner is always shown to render here
+        <button onClick={this.handleToggleClick}>
+          {this.state.showWarning ? 'Hide' : 'Show'}
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Page />,
+  document.getElementById('root')
+);
+```
