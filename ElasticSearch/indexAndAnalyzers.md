@@ -1,31 +1,33 @@
-// How to make indexes, analysers, tokens and filters
-// elasticsearch schema
+# How to make indexes, analysers, tokens and filters
+Elasticsearch schema
 
-// Analyzer:
-// specifies the analyzer used for teqt analysis when indexing or searching a text field
-// can be overwritten with search_analyziz, otherwise this is used for indexing and searching
+#### Analyzer:
+Specifies the analyzer used for teqt analysis when indexing or searching a text field
+can be overwritten with search_analyziz, otherwise this is used for indexing and searching
 
-// Tokenizer:
-// recives a stream of characters and breaks it into individual tokens. the result is output as a stream
-// the tokenizer chosen decides how the characters are split up
-// some built in tokenizers:
-// standard: devides on word boundaries
-// whitespace: devides on whitespace
-// letter: devides text every time a character which isnt a letter is encountered
-// lowercase: same as letter + lowercases all terms
+#### Tokenizer:
+Recives a stream of characters and breaks it into individual tokens. The result is output as a stream.
+The tokenizer chosen decides how the characters are split up
 
-// Filter:
-// combine the filters used in the given index
+Some built in tokenizers:\
+Standard: devides on word boundaries\
+Whitespace: devides on whitespace\
+Letter: devides text every time a character which isnt a letter is encountered\
+Lowercase: same as letter + lowercases all terms
 
-// Mapping:
-// maps fields in the data to search and index analyzers. One field can be connected to multiple analyzers
+#### Filter:
+Combine the filters used in the given index
 
+#### Mapping:
+Maps fields in the data to search and index analyzers. One field can be connected to multiple analyzers
+
+```C#
 "settings": {
     "max_result_window": "500000",
 
     "analysis": {
         "analyzer": {
-            "play_with_phonetic": {
+            "play_with_phonetic": { // analyzer
                 "tokenizer": "standard",
                 "filter": [
                     "lowercase",
@@ -116,14 +118,15 @@
                 },
             }
         }
+```
+
+When adding data to the index the analyzers are added to a set index, in this example they are all added to the same index "mark2"
+the data can be added individually or all data in a database can be run through the schema when running the api.
 
 
-// when adding data to the index the analyzers are added to a set index, in this example they are all added to the same index "mark2"
-// the data can be added individually or all data in a database can be run through the schema when running the api
+Search the chosen field with a given analyzer from search api
 
-
-// Search the chosen field with a given analyzer from search api
-
+```C#
 var queries = new List<Func<QueryContainerDescriptor<TrademarkModel>, QueryContainer>>();
 
 queries.AddWhen(usePhonetic, must => must.Match(m => CreateMatchPhoneticQuery(m, query.MarkTextSearch)))
@@ -134,3 +137,4 @@ private static IMatchQuery CreateMatchPhoneticQuery(
             // For field TrademarkText in TrademarkModel, use the suffix "phonetic" and the query query.textInput
             return match.Field(f => f.TrademarkText.Suffix("phonetic")).Query(query.TextInput);
         }
+```

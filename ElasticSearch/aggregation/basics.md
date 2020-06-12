@@ -1,8 +1,10 @@
 
-// aggregations allows for collecting meta-information about the search results
+# Basics
+Aggregations allows for collecting meta-information about the search results
 
-// this aggregation groups all the documents in the bank according to state and returns the ten (default) states
-// with the most accounts in descending order
+This aggregation groups all the documents in the bank according to state and returns the ten (default) states
+with the most accounts, in descending order
+```C#
 GET /bank/_search
 {
   "size": 0,
@@ -14,11 +16,13 @@ GET /bank/_search
     }
   }
 }
+```
 
 
-// the buckets in the response are the values of the state field, while the doc-count shows the 
-// number of documents in each state
-// because the request set size=0, only the aggregation results are returned
+The buckets in the response are the values of the state field, while the "doc-count" shows the 
+number of documents in each state.
+Because the request set size=0, only the aggregation results are returned.
+```C#
 {
   "took": 29,
   "timed_out": false,
@@ -74,13 +78,12 @@ GET /bank/_search
     }
   }
 }
+```
 
 
-
-
-
-// this combines the previous aggregation with a average_balance aggregation to 
-// calculate the average balance in each account
+This combines the previous aggregation with a average_balance aggregation to 
+calculate the average balance in each account
+```C#
 GET /bank/_search
 {
   "size": 0,
@@ -102,20 +105,27 @@ GET /bank/_search
     }
   }
 }
-// the sorting order of this query is after the result of the nested aggregation
+```
+The sorting order of this query is after the result of the nested aggregation
 
 
-// there are four different types of aggregations
-// Bucketing: contains a series of aggregations that create buckets, each bucket is associated with a key and 
-// a document criterion. The aggregation returns a list of buckets each containing a set of documents 
-// Metric: aggragations that keep track and compute metrics over a set of documents 
-// Matrix: a set of aggregations that operate on multiple fields and produce a matrix result based on the values
-// extracted from the requested document fields
-// Pipeline: aggragations that aggregate the output of other aggregations and their associated matrics
+There are four different types of aggregations:\
 
-// Aggregations can be nested to create multiple levels of assosiated buckets
+Bucketing: contains a series of aggregations that create buckets, each bucket is associated with a key and 
+a document criterion. The aggregation returns a list of buckets each containing a set of documents
 
-// Basic aggregation structure
+Metric: aggragations that keep track and compute metrics over a set of documents 
+
+Matrix: a set of aggregations that operate on multiple fields and produce a matrix result based on the values
+extracted from the requested document fields
+
+Pipeline: aggragations that aggregate the output of other aggregations and their associated matrics
+
+Aggregations can be nested to create multiple levels of assosiated buckets
+
+
+Basic aggregation structure
+```C#
 "aggregations" : {          //optionally aggs
     "<aggregation_name>" : {
         "<aggregation_type>" : {
@@ -126,9 +136,9 @@ GET /bank/_search
     }
     [,"<aggregation_name_2>" : { ... } ]*
 }
-
-// each aggregation is associated with a logical name that the user defines. These
-// also works as unique identifiers for the aggregation in the response
-// the aggregation type is typically the first key within the named aggregation body.
-// each type of aggregation defines its own body depending on the nature of the aggregation
+```
+Each aggregation is associated with a logical name that the user defines. These
+also works as unique identifiers for the aggregation in the response.
+The aggregation type is typically the first key within the named aggregation body.
+Each type of aggregation defines its own body depending on the nature of the aggregation.
 
