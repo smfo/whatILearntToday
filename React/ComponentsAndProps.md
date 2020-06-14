@@ -30,7 +30,7 @@ class Board extends React.Component {
 }
 ```
 
-#### Naming of props and access:
+### Naming of props and access:
 When refering to a property in the child component, props is always included, 
 followed by the property name, `this.props."proterty name"`
 
@@ -77,3 +77,28 @@ Advantages of components
  - detecting changes
  - determining when to re-render: helps building pure react components
 Being able to detect changes helps determining when to re-render a component
+
+### Prop validation
+
+Some times it is desierable to require that props are of a spesific type. This can be dome by using propTypes values.\
+`npm i prop-types`
+
+```javascript
+import PropTypes from 'prop-types';
+
+function Sum(props){
+  return <h1>{props.a} + {props.b} = {props.a + props.b}</h1>
+}
+Sum.propTypes = {
+  a: PropTypes.number.isRequired,
+  b: PropTypes.number.isRequired
+}
+
+ReactDOM.render(<Sum a={"a"} b={2} />,
+document.getElementById('root'));
+```
+
+This is done in runtime and provides an error message, but does not prevent the error for occuring.\
+There are many types of prop validations
+
+TypeScript and Flow also solve these problems. They detect errors to be detected at compiletime.

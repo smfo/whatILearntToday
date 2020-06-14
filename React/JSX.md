@@ -59,3 +59,33 @@ function Text(props){
 
 Components must always start with a capital letter, otherwise the element is passed to React.createElement,
 whereas custom components should be passed to React.createElement(Foo).
+
+#### Spread
+JSX support E5's spread syntax and allows for inserting multiple props at the same time using {...}.
+
+```javascript
+function Sum(props){
+  return
+  <h1> {props.a} + {props.b} = {props.a + props.b }</h1>;
+}
+
+const props = {a:2, b:4};
+const element = <Sum {...props} />
+```
+
+
+#### Children
+JSX element tags can have content. This will be the elements children.
+```javascript
+<Sum> 
+  <h1> I am a sum child <h1/>
+</Sum>
+```
+
+Children will be passed just as normal props, they will not be rendered automatically.\
+The example renders the child passed.
+```javascript
+function Sum(props){
+  return <div>{props.children}</div>
+}
+```

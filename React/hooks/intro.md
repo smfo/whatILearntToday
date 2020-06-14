@@ -2,10 +2,10 @@
 # Hooks
 
 Hooks let us use states and other React features withoug writing a class.\
-The let us hook into React state and lifecycles features from function components. 
-They don't work inside classes, and you don't need then cause they support React by default.
+They let us hook into React state and lifecycles features from function components. 
+They don't work inside classes, and you don't need them there cause they support React by default.
 
-React provides some built inn hooks, it is also possible to create your own.
+React provides some built in hooks, it is also possible to create your own.
 
 ```javascript
 import React, { useState } from 'react';
@@ -25,6 +25,7 @@ function Example(){
 }
 ```
 
+### useState()
 The useState() is a Hook that returns a getter, that returns the current state value,
  and a setter, a function that lets you update the state value.\
 We can set multiple states in the same component.
@@ -37,5 +38,9 @@ function MultipleStates(){
 }
 ```
 
-NB: instead of merging states like this.setState, the setter created by the state hook
-replaces the previous state value when it is called.
+**NB: instead of merging states like this.setState, the setter created by the state hook
+replaces the previous state value when it is called.**
+
+
+Always call hooks at the top level. This ensures that they are call in the same order every
+time the element renders. Do not call inside loops, conditions or nested functions.

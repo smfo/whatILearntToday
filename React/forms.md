@@ -74,7 +74,7 @@ class EssayForm extends React.Component {
 
 ### The select tag
 As the textarea tag the select tag is very similar to the input tag. Here the value is 
-set on the select tag, and value if is initialized in the constructor instead of using 
+set on the select tag, and the value is initialized in the constructor instead of using 
 a default "selected" attribute like in html.
 ```javascript
 class FlavorForm extends React.Component {
@@ -112,12 +112,12 @@ class FlavorForm extends React.Component {
 ```
 
 ### Files
-`<input type="file"/>` lets the yser upload a file from their device storage. 
+`<input type="file"/>` lets the user upload a file from their device storage. 
 This is a read-only, and is therefor a uncontrolled component.
 
 ### Multiple inputs
 Adding a name attribute to each element lets the handler function choose what 
-to do with the input based in the value of event.target.name,
+to do with the input based in the value of event.target.name.
 ```javascript
 class Reservation extends React.Component {
   constructor(props) {
