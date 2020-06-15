@@ -42,5 +42,10 @@ function MultipleStates(){
 replaces the previous state value when it is called.**
 
 
-Always call hooks at the top level. This ensures that they are call in the same order every
+#### Usage
+Can only be called by functional components.
+Can only be called by the top level. This ensures that they are call in the same order every
 time the element renders. Do not call inside loops, conditions or nested functions.
+
+The ESLint plugin enforces that these two rules are followed.
+`npm install eslist-plugin-react-hooks`
