@@ -5,7 +5,7 @@ Used to allow direct access to an element in the DOM.
 
 `const refContainer = useRef(initialValue);`
 
-We can change the element in the DOM by changin the current value of the
+We can change the element in the DOM by changing the current value of the
 refered element.\
 You assign a reference to an element by so `{ref}={refContainer}`.
 ```javascript
@@ -45,3 +45,24 @@ function TextInputWithFocusButton() {
 
 Mutating a .current does not cause a re-render! If this is preferable, use 
 useCallback() instead.
+
+## Class component
+These are very similar.
+
+```javascript
+//using useRef
+const myFunct = () => {
+  const imageRef = useRef(null);
+  return (
+    <img scr="x.png" ref={imageRef}>
+  );
+};
+
+// in class component
+class MyComp extends React.Component{
+  render(){
+    const imageRef = React.createRef();
+    return <img src="x.png" ref={imageRef}/>;
+  }
+}
+```

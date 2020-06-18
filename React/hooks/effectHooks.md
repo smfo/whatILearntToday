@@ -101,3 +101,50 @@ has been run. For this React has **useLayoutEffect**. It acts the same way as us
 in when it fiers.\
 useLayoutEffect fiers synchronously after all DOM mutations, before the browser has a chanse to paint.\
 Only use when neccessary.
+
+## Class component
+Using functional components, we only have to write and maintain one function as supposed to three, that also
+has to be syncronized.
+```javascript
+// with useEffect
+const MyFunct = () => {
+  useEffect(() => {
+    console.log("mounting")
+    return () => {
+      console.log("dismounting")
+    };
+  }, [isLoading]);
+};
+
+// class component
+class MyComp extends React.Component {
+  componentDidMount() {
+    console.log("mounting");
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log("dependency-chk");
+  }
+
+  componentWillUnmount(){
+    console.log("dismounting");
+  }
+};
+```
+
+With useEffect the function is run on render and every time a dependency changes. When the component is destroyed
+the return function is run.
+
+componentDidMount only runs once when the component renders. Like when there are no dependencies passed to useEffect. (Angular: onInit)\
+componentDidUpdate gets passed all old props and states on a state change. It is up to the function to determine if this
+change is significant and what to do if it is. (Angular: onChanges)
+```javascript
+componentDidUpdate(prevProps, prevState){
+  if(this.state.isLoading !== prevState.isLoading){
+    this.setState({
+      inView: this.isInView()
+    });
+  }
+}
+```
+componentWillUnmount runs once when the component is destroyed. (Angular: onDestroy)
