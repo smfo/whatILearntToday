@@ -1,15 +1,17 @@
 
+# Connect to db
 
-// code-first allows for the domain to create classes rather than designing the db first and then create classes
-// that match the db design
-// The development workflow in the code-first approach would be: Create or modify domain classes -> configure these domain 
-// classes using Fluent-API or data annotation attributes -> Create or update the database schema using automated migration or code-based migration
+EF builds a model based on the shape of the domain classes.
 
+Code-first allows for the domain to create classes rather than designing the db first and then create classes
+that match the db design.\
+The development workflow in the code-first approach would be: Create or modify domain classes -> configure these domain 
+classes using Fluent-API or data annotation attributes -> Create or update the database schema using automated migration or code-based migration
 
-// EF builds a model based on the chape of the domain classes
-// There are three parts: conceptual model, storage model and the mapping between these (context class)
+There are three parts: conceptual model, storage model and the mapping between these (context class).
 
-// entity classes
+Entity classes
+```C#
 public class Student
 {
     public int StudentId { get; set; }
@@ -21,8 +23,10 @@ public class Course
     public int CourseId { get; set; }
     public string CourseName { get; set; }
 }
+```
 
-// the DbContext file represents a session with the database which can be used to query and save instances of entities to db
+The DbContext file represents a session with the database which can be used to query and save instances of entities to db.
+```C#
 public class SchoolContext: DbContext 
 {
     public SchoolDBContext(): base() 
@@ -47,4 +51,4 @@ public class SchoolContext: DbContext
         modelBuilder.Entity<Standard>().ToTable("StandardInfo","dbo");
     }
 }
-
+```

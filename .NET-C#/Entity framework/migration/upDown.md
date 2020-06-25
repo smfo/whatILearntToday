@@ -1,19 +1,22 @@
 
 
-// Generate a new migration file
-dotnet ef migrations add migrationName
-// This will automatically generate a migration file with a up and down method and a snapshot of the database before the migration is executed
+# Generate a new migration file
 
-// When using add-migrations in the package manager console to generate migrations:
-// The Up method upgrades the database from its current state (represented by your previous migration) to the 
-// state expected by your current code migration. 
-// The Down method does the reverse operation - it removes all the changes from the current migration and 
-// reverts database to the state expected by the previous migration. 
-// It's like installing / uninstalling the migration. Only one of these methods is executed when calling 
-// update-database. To use the Down method you must explicitly specify the target migration for your upgrade. 
-// If the target migration is the old one, the migration API will automatically use the Down method and 
-// downgrade your database.
+`dotnet ef migrations add migrationName`
+This will automatically generate a migration file with a up and down method and a snapshot of the database before the migration is executed.
 
+When using add-migrations in the package manager console to generate migrations:\
+The Up method upgrades the database from its current state (represented by your previous migration) to the 
+state expected by your current code migration.\
+The Down method does the reverse operation - it removes all the changes from the current migration and 
+reverts database to the state expected by the previous migration.\
+
+It's like installing / uninstalling the migration. Only one of these methods is executed when calling 
+update-database. To use the Down method you must explicitly specify the target migration for your upgrade. 
+If the target migration is the old one, the migration API will automatically use the Down method and 
+downgrade your database.
+
+```C#
 public partial class ApprovedTermsHistory : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,9 +55,9 @@ public partial class ApprovedTermsHistory : Migration
                 name: "ApprovedTermsHistory");
         }
     }
+```
 
-
-// to use Down()
-Update-Database -Target:201407242157114_46
-// Where target us the name of the migration you want to downgrade to
-// in this case the bad migration was migration 47
+To use Down()
+`Update-Database -Target:201407242157114_46`
+Where target us the name of the migration you want to downgrade to
+in this case the bad migration was migration 47.
