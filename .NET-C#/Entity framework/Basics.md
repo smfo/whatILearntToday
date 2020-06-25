@@ -1,5 +1,6 @@
 
-# Entity framework
+# Entity framework core
+ORM (object relational mapper)
 Enables .NET developers to work with databases using .NET objects and eliminates the need for most of the data-access code.\
 Data access is performed using a model made up of entity classes and a context Object.
 The object represents a session with the database, allowing the developer to query and save data.

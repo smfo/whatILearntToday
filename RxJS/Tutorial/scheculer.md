@@ -70,3 +70,36 @@ Output:
 * sync
 * asap
 * async
+
+## AnimationFrameScheduler
+Schedule tasks before the browser repaints. This allows for smooth transitions.
+
+```javascript
+animationFrameScheduler.schedule(
+    function(position){
+        ball.style.transform = `translate3d(0, ${position}px, 0`;
+        this.schedule(position + 1);
+    }, 0, 0
+)
+```
+
+## QueueScheduler
+Schedule synchronous tasks on a queue.
+Tasks scheduled within other tasks will always run after the outer task is complete. See the output from the
+example below.
+
+```javascript
+queueScheduler.schedule(() => {
+    queueScheduler.schedule(() => {
+        console.log('inner queue');
+    });
+
+    console.log('first queue');
+})
+console.log('sync')
+```
+
+Output:
+* first queue
+* inner queue
+* sync
