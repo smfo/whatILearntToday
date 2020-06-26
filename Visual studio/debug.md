@@ -45,17 +45,30 @@ Use the arrows navigate between hits.
 Both of these window update automatically as you move around in the code in debug, and support the search feature
 described in "Watch window".
 
+### Immediate window
+Lets you test different aspects of the code by typing commands, manage variables and execute expressions.
+* Get variable values by typing the variable name
+* Change a variable value by typing variable name = value
+* Run function by typing FunctionName(arguments). These arguments can be the modified versions you have previously
+made in the window. You can run both the function where the breakpoint is placed and submethods
+* > gives access to the debug functions available. ex: Debug.Print
+Use >Debug.Print Function(args) to run methods and imidiatly display the output result
+
 ## Other handy tips
 
 ### Pin variable value 
 Hover over the chosen variable to get its current value. Click the pin to the right of the value to pin it to this
-point in the code. Can also be used on nested values
+point in the code. Can also be used on nested values.
+
+### Skip code, run code again
+Drag the yellow arrow in the margin around to device what code to run next, this shanges the execution point in the code. 
+This can be used to skip code or rerun previous code. Right clicking and selecting "Set as next statement" achives a similar
+effect.
 
 ### Run til this point
 While in debug mode, click the green play-icon that will appear to the left of the chosen line (while hovering there),
-to run the code up until this point
+to run the code up until this point. Or right click and select "Run to cursor".
 
 ### Quick watch 
-Allows for expressions creation, with access to all the variable values at the given point in the code
-
-Shift + F9                  //Running in debug, opens quickwatch (with selected element if any)
+Allows for expressions creation, with access to all the variable values at the given point in the code. 
+Right click or (Shift + F9) to open.
