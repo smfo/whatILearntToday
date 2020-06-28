@@ -4,7 +4,9 @@ useReduser is what useState is built on.\
 Prefered to useState when having complex state logic that involves multiple sub-values or when the next state depends on the previous one.
 
 **Reducer**
-A reducer takes in two parameters, a precious state and an action/function, and returnes a new state
+A reducer takes in two parameters, the previous state of the variable and an action/function, and returnes a new state.\
+Reducers can apply a lot more logic to getting the new state than useState that only sets the new state equal to the
+recived action value-
 `(previousState, action) => newState`
 
 ```javascript
@@ -19,7 +21,7 @@ function speakersReducer(state, action){
             return item;
         });
     }
-    //allows for multiple changes within the same reducer
+    //allows for multiple returns within the same reducer
     switch (action.type){
         case "setSpeakerList":{
             return action.data;

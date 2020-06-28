@@ -1,5 +1,5 @@
 
-# Connect to db
+# Mapping to db
 
 EF builds a model based on the shape of the domain classes.
 
@@ -44,7 +44,7 @@ public class SchoolContext: DbContext
         // if undefined all schemas will be defined in the dbo schema by default
         modelBuilder.HasDefaultSchema("Admin");
 
-        //Map entity to table
+        // Map entity to table
         // The student entity is mapped to the studentinfo table
         // ToTable(tableName, schema) no specify schema will default to admin
         modelBuilder.Entity<Student>().ToTable("StudentInfo");
