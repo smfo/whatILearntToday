@@ -8,7 +8,7 @@ For SQL this means the Microsoft.EntityFrameworkCore.SqlServer package.
 
 
 Its nessecary to specifiy the data provider to the project. This is done in the context class
-in the data project. THe context class needs to extend DbContext.
+in the data project. The context class needs to extend DbContext.
 
 For SQL it looks like this:
 ```C#

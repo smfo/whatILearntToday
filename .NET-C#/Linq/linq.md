@@ -3,99 +3,49 @@
 LINQ (Language integrated query) provides a single query interface for different types of data sources and eliminates
 the mismatch between programming languages and databases. It is built in C# or VBArray.NET
 
-## Queries
-All query operations consist if three distinct actions 
-* Obtain the data source 
-* Create the query
-* Execute the query 
+## Linq and C#
+IEnumberable<T> is king!
 
+### Extension method
+Creates a static public method of any type.\
+The first parameter will always use a "this" modifier, other parameters are treated normally.
+
+ToDouble will appear as if it is an instance method of the string type.
 ```C#
-class IntroToLINQ
-{        
-    static void Main()
+public static class StringExtensions
+{
+    static public double ToDouble (this string data)
     {
-        // The Three Parts of a LINQ Query:
-        // 1. Data source.
-        int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
-
-        // 2. Query creation, query variable
-        // numQuery is an IEnumerable<int>
-        var numQuery =
-            from num in numbers
-            where (num % 2) == 0
-            select num;
-
-        // 3. Query execution.
-        foreach (int num in numQuery)
-        {
-            Console.Write("{0,1} ", num);
-        }
+        double result = double.Parse(data);
+        return result;
     }
 }
+
+//using the method
+string text = "43.35";
+double data = text.ToDouble();
 ```
 
-The query variable is not connected to the query execution, meaning that no data is retrived just be creating a query variable, 
-doing something with the query variable has to be included as well.\
-Queries are executed in foreach statements and require IEnumerable or IEunumerable<T>, if the data source is not on this format
-the LINQ provider must modify it to be so before executing the query.
+All Linq operators, filter and aggregation methods are defined as extension methods.\
+All these live in `System.Linq`.
+
+### Func type
+Many Linq operators use this type. Introduced as an easy way to work with delegates, types what allow printing of variables that point to methods. There are 17 overloads of Func.\
+The last generic parameter always describes the return type of the method. The others are incomming types.
 
 ```C#
-Northwnd db = new Northwnd(@"c:\northwnd.mdf");  
-  
-// Query for customers in London.  
-IQueryable<Customer> custQuery =  
-    from cust in db.Customers       // data source
-    where cust.City == "London"     // filters
-    select cust;                    // type of the returned elements
+Func<int, int> square = x => x * x;
+square(3);
+
+Func<int, int, int> add = (x, y) => x + y;
+add(8, 19);
 ```
 
-A query is stored in a query variable and initialized with a query expression,
-the query variable itself takes no action and returns no data!
-It just stores the information required to produce the results when the query is executed
-
-## Query execution
-The execution of the query is not deferred until you iterate over the query variable in the foreach statement, 
-this is called a deferred execution.
-```C#
-foreach (int num in numQuery)
-{
-    Console.Write("{0,1} ", num);
-}
-```
-
-This is also where the query results are retrived. Above the variable num holds each iteration variable, one at a time 
-in the returned sequence.
-
-The query variable never holds the query results and can therefore be executed an infinit amount of times. 
-This is usefull when checking for updates etc.
-
-When a query aggregates over a range of source customElements, it must first iterate over the elements, 
-this includes CountQueuingStrategy, max, average and first .
-Since the query itself must use a foreach to return a result these execute without a foreach statement. 
-These queries return a single IDBCursorWithValue, not an IEnumerable HTMLAllCollection.
+### Action type
+Always return void.
 
 ```C#
-var evenNumQuery = 
-    from num in numbers
-    where (num % 2) == 0
-    select num;
-
-// query execution
-int evenNumCount = evenNumQuery.Count();
+Action<int> write = x => Console.WriteLine(x);
 ```
 
-It is possible to force a immediate execution by using ToList or ToArray, this caches the result
-```C#
-List<int> numQuery2 =
-    (from num in numbers
-     where (num % 2) == 0
-     select num).ToList();
-
-// or like this:
-// numQuery3 is still an int[]
-
-var numQuery3 =
-    (from num in numbers
-     where (num % 2) == 0
-     select num).ToArray();
-```
+### Implicit typing
