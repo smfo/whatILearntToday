@@ -16,20 +16,20 @@ Add via the subnet menu choice. Name it, chose the assosiated VPC and select a a
 A EC2 is a virtual machine. The operating system is also refered to as AMI (Amazon machine image).
 
 Create by chosing launch instance, select the image to use, an instance type, select the assosiated VPC, subnet and any other information. Add a security group and add security rules. 
-For localhost access add a rule using "Custom TCP", the port number and anywhere. Creat an download a keypair to be able to SSH into the application.
+For localhost access add a rule using "Custom TCP", the port number and anywhere. Create an download a keypair to be able to SSH into the application.
 
 The EC2 instances are listed under instances. Information available include the public IP, private IPs and the key pair name.
 
 ### ElasticIP
 Public IP addresses that are created, destroyed and assigned independetly. Can be assigned to new EC2 instances if the old one is destroyed.
 
-From the EC2 dashboard: network and security - Elastic IP. To associate with a instance click actions - associate with IP and fill in the form. This elastic IP will now be the public IP for chosen instance.
+From the EC2 dashboard: network and security - Elastic IP. To create clicl allocate new address. To associate with a instance click actions - associate with IP and fill in the form. This elastic IP will now be the public IP for chosen instance.
 
 ### Connection to the EC2 instance
 Follow these steps to connect to the instance using Putty: https://linuxacademy.com/guide/17385-use-putty-to-access-ec2-linux-instances-via-ssh-from-windows/\
-Remember to save as **private** key and use the ElasticIP as the public_dns_name.
+Remember to save as **private** key and use the ElasticIP, IPv4 Public IP, as the public_dns_name.
 
-In the CLI type sudo yum update to update the packages. Type curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash - and then sudo yum install -y nodejs to install node.
+In the CLI type `sudo yum update` to update the packages. Type `curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -` and then `sudo yum install -y nodejs` to install node.
 
 ### Upload application
 To save time, delete the node_modules folder from the application, this will be installed again after uploading the file.

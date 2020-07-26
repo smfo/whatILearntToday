@@ -15,6 +15,9 @@ fetch('http://server.com/events')
         console.error(error);
     });
 ```
+**Then** is not like tap. Any changes done to the observable will be passed on to the next .then 
+or whatever uses the fetch values. This also applies to console.log!
+
 Other XHR based libraries can also be used, like Axio.
 
 ## Get data
@@ -28,20 +31,6 @@ export function getEvents() {
         .then(events => event.map(e => ({...e, date: new Date(e.date)})));
 }
 ```
-**NB**: localhost urls will not work on physical test devices (or simulators?) if the server is running on the computer.
-
-Magic fix:
-```javascript
-import Expo from 'expo';
-
-const { manifest } = Expo.Constants;
-// if the program is in development environment, get the url for the computer (instead of localhost)
-const api = manifest.packageOpts.dev
-    ? manifest.debuggerHost.split(':').shift().concat(':3000')
-    : 'productionurl.com';
-
-const url = `http://${api}/events`;
-```
 
 Use getEvents in other component:
 ```javascript
@@ -51,7 +40,6 @@ getEvents().then(events => this.setState({ events }));
 ```
 
 ## Post data
-
 ```javascript
 export function saveEvent({ title, date }){
     return fetch(url, {
@@ -70,7 +58,8 @@ export function saveEvent({ title, date }){
 }
 ```
 
-This will successfully save to the api, but getEvents need to load the updated data.
+This will successfully save to the api, but getEvents also needs to load the updated data
+in order to update the view.
 
 ```javascript
 componentDidMount(){
@@ -78,4 +67,19 @@ componentDidMount(){
         getEvent...
     })
 }
+```
+
+## Access localhost from test device
+Localhost urls will not work on physical test devices (or simulators?) if the server is running on the computer
+
+```javascript
+import Constants from 'expo-constants';
+
+const { manifest } = Constants;
+// if the program is in development environment, get the url for the computer (instead of localhost). This is the manifest.debuggerHost
+const api = manifest.packagerOpts.dev
+    ? manifest.debuggerHost.split(':').shift().concat(':3000')
+    : 'productionurl.com';
+
+const url = `http://${api}/events`;
 ```

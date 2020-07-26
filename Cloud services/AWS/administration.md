@@ -47,3 +47,5 @@ Topic: used to greate a arn that can be subscribed to using sms or email. Region
 
 Create SNS and set up subscription: Go to SNS and create a topic, giving it a name is the only thing that is  required. On the SNS dashboard select Topics, click the desiered topic, select the subscriptions tab and click create subscription. Then select the desiered subscription protocol.
 To get to the dashboard, search for the SNS.
+
+532296096679

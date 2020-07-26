@@ -18,7 +18,7 @@ and not having a security policy
 
 Cross-origin request: a request for a resource (ex. image or font) from outside the origin
 It is CORS (cross-origin resource sharing) that manages these requests
-CORS specify who can access the servers assets and which HTTP request methods are 
+CORS specify who can access the server assets and which HTTP request methods are 
 allowed from external resources. DELETE, PATCH and PUT will typically be denied, while 
 GET is allowed
 
@@ -38,7 +38,7 @@ Origin
 Access-Control-Allow-Origin
 allow servers to specify how their resources are shared with external domains.
 When a request is made the server will respond with a value for the access-control-allow-origin header
-If the values is #, this means the server will share the requested resources with any domain on
+If the values is *, this means the server will share the requested resources with any domain on
 the internet. Other times the value is set to a particular domain or list of domains
 
 

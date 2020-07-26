@@ -41,3 +41,15 @@ The most important props are onTextChanged
       value={value}
     />
 ```
+
+## FlatList
+Flatlist takes an array of elements. The elements in data is itterates over 
+and the logic in renderItem is applied to each of them seperatly.\
+The FlatList component must contain either the data or renderItem props.
+
+```javascript
+<Flatlist
+    data={data}
+    renderItem={render function/component}
+/>
+```

@@ -57,7 +57,7 @@ Matches URLs with AWS instances.
 Application scaling. Deploys the app to EC2 and much more. Monitors and loggs the application.
 
 Manages multiple application versions and deploys them to different environments (test, prod etc). Application versions are
-stored in S3. Each application has a lomit of 1000 versions.
+stored in S3. Each application has a limit of 1000 versions.
 
 Free service (need to pay for EC2, load balancers and S3).
 

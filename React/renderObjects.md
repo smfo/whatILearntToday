@@ -66,3 +66,18 @@ getData = async () => {
 }
 ```
 This example collects two values from each object from an array of objects.
+
+Or return new objects
+```javascript
+//original object
+{
+    confirmed: 3876665
+    deaths: 134312
+    tested: 47224382
+    todays_confirmed: 62749
+    todays_deaths: 1029
+    todays_tested: 754858
+}
+
+const displayData = Object.keys(data).map((key, val) => {return {"key": key, "value": data[key]}})
+```

@@ -31,9 +31,37 @@ function Example() {
 }
 ```
 
+**NOTE** If the useEffect method changes any values or elements that make the component rerender
+useEffect will be called again unless there is a confition attached to it. Meaning that if a state
+value in the component is changed this will cause an infinite loop of rerendering the component.\
+To fix this, either set a condition for the component to not have a value or appoint an empty condition array.
+This means that the useEffect function will only run once, when the component is mounted.
+
+```javascript
+useEffect(() => {
+    console.log('did mount');
+    getData().then(data => setData(data));
+  }, [])
+
+//using conditions
+useEffect(() => {
+  console.log('did mount');
+  getData().then(data => setData(data));
+}, [data===null])
+```
+
+THe default for a condition is to run useEffect every time the value changes, so this would run useEffect every time
+the value of data is changed.
+```javascript
+useEffect(() => {
+  console.log('did mount');
+  getData().then(data => setData(data));
+}, [data])
+```
+
 ### Effects without cleanup
 ex. network requests, manual DOM mutations, logging\
-These don't require cleanup because they can be run and immeadiatly forgotten about.
+These don't require cleanup because they can be run and be immeadiatly forgotten about.
 
 ### Effects with cleanup
 When introducing effects that require cleanup, such as subscriptions, it is important to clean up
@@ -46,10 +74,13 @@ function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
 
   useEffect(() => {
+
     function handleStatusChange(status) {
       setIsOnline(status.isOnline);
     }
+
     ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+
     // Specify how to clean up after this effect:
     return () => {
       ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
@@ -67,7 +98,7 @@ function FriendStatus(props) {
 To reset the the sideeffects, and the state, in an element, we can unmount and remount it.
 That means that we remove the current "instance" of the element from the DOM and adds a new, fresh
 "instance".\
-The easiest way to do this is to change the key of the element as react will now view this as a complealt
+The easiest way to do this is to change the key of the element as react will now view this as a completly
 new element.
 
 ```javascript
