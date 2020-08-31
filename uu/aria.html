@@ -75,7 +75,8 @@ aria-controls says that this section controls the element by id collapsedFilter
 	<mat-icon class="flag" [inline]="true" *ngIf="(isActive | async)" title="{{ 'cFilterActiveText' | translate }}">
 		fiber_manual_record</mat-icon>
 </div>
-this element is controlled by the element by id subHeader
+
+this element is controlled by the element with id subHeader
 <div id="collapsedFilter" role="region" aria-labelledby="subHeader" class="collapse"
 	[ngClass]="{ collapse: collapsed }">
 	<app-aggregation-filter-checkboxes (filterChanged)="filterChanged($event)" [model]="model">

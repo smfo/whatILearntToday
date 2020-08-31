@@ -7,7 +7,7 @@ EF Core with LINQ queries
 ### Problems
 **Collecting to local SQL database**
 The example was set up with a InMemory database (where does this data even go?), change to a DbContext SQL server connection string using 
-the deciered DB name
+the desiered DB name
 
 ```C#
 //Startup.js ASP.Net core web API

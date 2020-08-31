@@ -1,8 +1,8 @@
 
 # Setting up a EF core project
 
-EF Core needs a connection to the database that will be used, so install the EF Core database 
-server NuGet package instead of the EntityFremeworkCore package in the data project.
+EF Core needs a connection to the database that will be used, so install the EF Core databaseservers
+ NuGet package instead of the EntityFremeworkCore package in the data project.
 
 For SQL this means the Microsoft.EntityFrameworkCore.SqlServer package.
 
@@ -10,12 +10,12 @@ For SQL this means the Microsoft.EntityFrameworkCore.SqlServer package.
 Its nessecary to specifiy the data provider to the project. This is done in the context class
 in the data project. The context class needs to extend DbContext.
 
-For SQL it looks like this:
+For a local SQL server it looks like this:
 ```C#
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = SamuraiAppData");
+                "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = DatabaseName");
         }
 ```
 

@@ -6,7 +6,7 @@ Framework: older version, only runs on windows. Use if Framework is already used
 Core: crossplatform, runs on mac, windows, linux. not everything needs to be installed on the target computer. Supports cloud services and micro services
 
 Base class library: built in types. Array, string manipulation etc. Moving code between different BCL is a problem, as it changes what the app models build on
-.NET Standard: is the common BCL for all .NET implementations (Core, Framework, Xamarin and any future implementations). THe code can run on all platforms using the same version of the standard library.
+.NET Standard: is the common BCL for all .NET implementations (Core, Framework, Xamarin and any future implementations). The code can run on all platforms using the same version of the standard library.
 
 ### Class library (.NET standard)
 "A project for creating a class library that targets .NET standard"
@@ -21,7 +21,7 @@ An open source web framework for building dynamic and interactive web apps and s
 .NET with tools and libraries specifically for building web apps.
 
 ### ASP.net web application (.NET Framework)
-"Project templates for creating ASP.NET applications. You can create ASP.NET Web forms, mvc, or web api applications and add many other features in ASP.NET"
+"Project templates for creating ASP.NET applications. You can create ASP.NET Web forms, mvc, or web api (http) applications and add many other features in ASP.NET"
 Windows only version, belongs to .NET Framework.
 Large set of capabilities, among them ASP.NET Form
 

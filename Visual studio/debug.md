@@ -17,7 +17,7 @@ Hit Count Column: show how many times the break points have triggered during exe
 Set a break point, right click on it and chose "conditions". By setting conditions, the program will only break at the 
 break point when these conditions are met.
 
-### Trace points
+### Trace points/print
 Offer information about the history of what have happened.\
 Set a breakpoint, right click and select actions. Log a message to the output window. This can be done on all occurances or
 given a specific condition set in the breakpoint.
