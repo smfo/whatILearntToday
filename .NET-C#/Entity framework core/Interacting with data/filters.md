@@ -1,6 +1,8 @@
 
 # Filtering
 
+See more on filtering in the LINQ folder.
+
 ```C#
 var name = "Yuki"
 var samurais = _context.Samurais.Where(s => s.Name == name).ToList();

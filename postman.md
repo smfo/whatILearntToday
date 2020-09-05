@@ -24,7 +24,7 @@ Body: used to customize request, used in post, put, patch
 Create multiple environments to easily access and change parameter values in a project. The chosen environment is
 displayed in the top right corner.\
 Current values are private to the user, while initial values are shared with the team.
-Use the variables by typing {{variableName}}, in the url, authentication tab or any other tabs I guess.
+Use the variables by typing ```{{variableName}}```, in the url, authentication tab or any other tabs I guess.
 
 
 ## Code generation:

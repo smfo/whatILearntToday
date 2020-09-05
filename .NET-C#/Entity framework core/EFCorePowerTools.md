@@ -7,7 +7,7 @@ Extension: https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowe
 To display in VS: Extensions -> Manage extensions
 
 ## Database schema as graph
-Require Visual studio DGML editor
+Require Visual studio DGML editor\
 Open Visual Studio Installer, find the installed version and choose Modify.\
 Individual components -> DGML editor
 

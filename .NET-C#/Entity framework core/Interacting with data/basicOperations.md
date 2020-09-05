@@ -2,7 +2,7 @@
 # Basic data operations
 
 All of these have a range option, and can chose to use the DbContext method
-instead of the DbSet method.
+instead of the DbSet method. EF Core will manage to match the object with the correct table.
 
 **Add**
 _context.Samurais.Add(samurai)
@@ -32,7 +32,7 @@ context.DbSetToAddTo.Add(Value)
 
 context.DbSetToAddTo.AddRange(value, value);
 ```
-AddRange lets you add multiple object to the database table. AddRange acepts multiple values,
+AddRange lets you add multiple object to the database table. AddRange accepts multiple values,
 or a list with values.
 
 From 4 inserts and up, EF Core uses batch inserts.
@@ -151,8 +151,8 @@ As with adding data, EF core needs to update at least 4 objects to run a batch i
 of multiple db calls.
 
 ## Deleting data
-Data cannot be instantly deleted, the data needs to be tracked first. Meaning we have to retrive
-the object first, before removing it and saving the changes.
+Data cannot be instantly deleted, the data needs to be tracked first. Meaning we first have to retrive
+the object, before removing it and saving the changes in the db.
 
 ```C#
 private static void RetrieveAndDeleteASamurai()
@@ -164,4 +164,4 @@ private static void RetrieveAndDeleteASamurai()
 ```
 
 ## Attach
-Important in disconnected scenarios.
+Important in disconnected scenarios. See related data -> adding

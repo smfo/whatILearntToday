@@ -8,7 +8,8 @@ For SQL this means the Microsoft.EntityFrameworkCore.SqlServer package.
 
 
 Its nessecary to specifiy the data provider to the project. This is done in the context class
-in the data project. The context class needs to extend DbContext.
+in the data project. The context class needs to extend DbContext. And it is here the DbSets that defines
+which table the user can directly interact with and query are set.
 
 For a local SQL server it looks like this:
 ```C#

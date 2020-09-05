@@ -8,9 +8,11 @@
  This will also install the Microsoft.EntityFrameworkCore.Design package, that is the 
  migrations APIs.
 
- **Powershell commands**
+ **Console commands**
  Commands that can be run the the Package Manager Console.\
- Make sure the default project is set to where EFCore, the commands and the context is, the data project.
+ Make sure the default project is set to where EFCore, the commands and the context is, the data project.\
+ NB: migrations in the console are run towards the project that contains the DbContext implementation, however
+ the startup project of the application, not related to the console, needs to be set to an executable project.
 
  * get-help entityframework
  * Add-Migration               Adds a new migration.
@@ -39,7 +41,7 @@
  addition to containing the given models, there will also be a EFMigrationsHistory table. This shows all the migrations
  that has been run on the database.
 
- For VS local SQL the SQL server might need to get refreshed. This can be selected by right clicking in the 'SQL server Object Explorer'.
+ For VS local SQL, the SQL server might need to get refreshed. This can be selected by right clicking in the 'SQL server Object Explorer'.
 
 ## "Startup project targets framework '.NetStandard'"
 
@@ -48,4 +50,14 @@ Startup project 'project' targets framework '.NETStandard'. There is no runtime 
 ```
 
 The Default Project in the Package Manager Console is set to the context project which is not executable, but more like an interface. 
-An interface cannot be initialised, so on order to actually do somehting the Startup project of the namespace needs to be set to an executable project. This is a project that uses .NET Core instead of .NET Standard, like a console project. In VS this can be done by right clicking the project and selecting "Set as startup project".
+An interface cannot be initialised, so oi order to actually do somehting the Startup project of the namespace needs to be set to an executable project. This is a project that uses .NET Core instead of .NET Standard, like a console project. In VS this can be done by right clicking the project and selecting "Set as startup project".
+
+## Reverting migration
+If the migration is not added to the database, the migration can be removed by using
+```remove-migration ```.
+
+If the migration is added to the database update to the migration previous to this and then remove the migration.
+```
+update-migration <previous migration>
+remove-migration
+```
