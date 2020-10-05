@@ -1,7 +1,6 @@
 
 # Lists and keys
 
-
 ### Rendering multiple components
 Collections of elements can be included in JSX like so
 

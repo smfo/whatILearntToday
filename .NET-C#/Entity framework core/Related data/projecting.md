@@ -44,6 +44,8 @@ var somePropertoesWithQuites = _context.Samurais.
 
 ### Filtering
 Unlike with Include, Select lets you filter on the included data.\
+NB: this changes with EF Core 5!\
+
 Filter on the selected fields to only return some of them and give them new field names in the Object.
 ```C#
 var somePropertiesWithQuotes = _context.Samurais
@@ -57,6 +59,21 @@ var samuraisWithHappyQuotes = _context.Samurais
        HappyQuotes = s.Quotes.Where(q => q.Text.Contains("happy"))
    })
    .ToList();
+```
+
+The related data does not have to be retrived earlier in the query to be available in Select.
+Here PlayedGames is a join table between Users and Games, however we can include fields from
+Games in the Select object.
+```C#
+_context.Users.Where(x => x.Name == userName)
+                .Select(x =>
+                    new UserWithGames()
+                    {
+                        Name = x.Name,
+                        PlayedGames = x.PlayedGames.Select(y => y.Game.Name).ToList(),
+                        FavoritGames = x.FavoritGames.Select(x => x.Game.Name).ToList(),
+                        WantToPlayGames = x.WantToPlayGames.Select(x => x.Game.Name).ToList()
+                }).FirstOrDefault();
 ```
 
 The last example will return an object with two fields Samurai, which contains the complete Samurai

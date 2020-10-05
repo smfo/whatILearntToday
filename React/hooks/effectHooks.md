@@ -32,8 +32,8 @@ function Example() {
 ```
 
 **NOTE** If the useEffect method changes any values or elements that make the component rerender
-useEffect will be called again unless there is a confition attached to it. Meaning that if a state
-value in the component is changed this will cause an infinite loop of rerendering the component.\
+useEffect will be called again unless there is a condition attached to it. Meaning that if a state
+value in the component is changed inside useEffect, this will cause an infinite loop of rerendering the component.\
 To fix this, either set a condition for the component to not have a value or appoint an empty condition array.
 This means that the useEffect function will only run once, when the component is mounted.
 
@@ -50,13 +50,23 @@ useEffect(() => {
 }, [data===null])
 ```
 
-THe default for a condition is to run useEffect every time the value changes, so this would run useEffect every time
+The default for a condition is to run useEffect every time the value changes, so this would run useEffect every time
 the value of data is changed.
 ```javascript
 useEffect(() => {
   console.log('did mount');
   getData().then(data => setData(data));
 }, [data])
+```
+
+To check for changes in all values in an object deconstruct the object and use that sa the run condition.
+```C#
+React.useEffect(() => {
+        GetCompareUserNames(context).then(data => {
+            setCompareUser(data);
+            setCurrentUser(context);
+        });
+    }, [...Object.values(context)])
 ```
 
 ### Effects without cleanup

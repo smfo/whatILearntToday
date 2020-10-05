@@ -48,4 +48,4 @@ function Glossary(props){
     );
 }
 ```
-Right now, key is the only attribut ethat can be passed to Fragment.
+Right now, key is the only attribute that can be passed to Fragment.

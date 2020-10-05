@@ -8,7 +8,6 @@ documented by creating a migration file, which then is applied to the DB to make
 used to run a script.
 
 EF Core migrations are source-control friendly.
-Whatever that means..
 
 ## Migrations
 This feature provides a way to update the database schema to keep it in sync with the application's data while preserving existing

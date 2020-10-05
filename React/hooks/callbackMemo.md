@@ -6,7 +6,7 @@ Returns a memoized version of the callback.
 Technique used for speed up computer programs by storing the results of expensive function calls and 
 returning this cached result if the same input is being passed to the function.
 
-useCAllback caches a function, while useMemo caches a value.
+useCallback caches a function, while useMemo caches a value.
 
 Pass an inline callback and an array of dependencies.
 The memoized version of the callback will only change if one of the dependencies has changed. This is usefull
@@ -62,7 +62,7 @@ If no value is provided, a new value will be computed on every render.
 Only pass functions that run during rendering, side effects belong in useEffect.
 
 ```javascript
-const memoizedValue = useMemo(() => computeExpensiveValue(a,b), [1,2]);
+const memoizedValue = useMemo(() => {return computeExpensiveValue(a,b)}, [1,2]);
 ```
 
 ```javascript
@@ -70,8 +70,36 @@ const [speakingSaturday, setSpeakingSaturday] = useState(true);
 const [speakingSunday, setSpeakingSunday] = useState(true);
 const [speakerList,dispatch] = useReducer(speakersReducer, []);
 
-const sortedSpeakerList = useMemo(() => speakerList.filter(...),
+const sortedSpeakerList = useMemo(() => {return speakerList.filter(...)},
     [speakingSaturday, speakingSunday, speakerList]);
 ```
 The list of dependencies are `[speakingSaturday, speakingSunday, speakerList]`, if any of these are changed useMemo will run again
 on the next render.
+
+## useMemo vs useEffect + useState
+The useEffect + useState method will execute after the render has happened, as is the nature of
+useEffect. Because a state is changed this will force a new render. This will not happen when
+using useMemo.
+
+However, useMemo should not be used if the values are returned from a async function as this will
+just return a promisse.
+
+```JSX
+const useCalculate = numberProp => {
+    const [result, setResult] = useState<number>(null);
+
+    useEffect(() => {
+        setResult(expensiveCalculation(numberProp));
+    }, [numberProp]);
+
+    return result;
+};
+```
+
+```JSX
+const useCalculateWithMemo = numberProp => {
+    return useMemo(() => {
+        return expensiveCalculation(numberProp);
+    }, [numberProp]);
+};
+```

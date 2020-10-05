@@ -67,11 +67,13 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 
 ## One-to-one
-In a one-to-one relationship it is enough to specify a foreign key in the dependent end and add
+In a one-to-one relationship it is enough to specify a foreign key in the dependent end (the class containing the FK) and add
 a instance of this class to the non dependent end.
 
 NB: the dependent end will always be considered by EF to be optional. A samurai does not HAVE to have a horse.
-There is no way to apply this condition in EF Core, this has to be done in the bussines logic.
+There is no way to apply this condition in EF Core, this has to be done in the bussines logic.\
+By default the hourse does not have to have a Samurai either, in that case use int? because int is nonullable.
+This can however be set to required in the model.
 
 ```C#
 public class Horse

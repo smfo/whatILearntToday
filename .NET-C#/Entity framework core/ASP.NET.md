@@ -5,11 +5,15 @@ The configuration of the database will happen in the asp.net startup file instea
 dbContext. The actual connectionstring will be stored in appsetting so it can be changed
 according to environment.
 
+Microsoft.Aspnetcore.Mvc.NewtonsoftJson needs to be installed with EF Core 3 to be
+able to use ThenInclude. If using AddControllers, use the AddNewtonsoftJson below.
+
 ```C#
 // startup
 public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<MyGamesContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlConnectionString")).EnableSensitiveDataLogging()
                 );
@@ -25,12 +29,14 @@ public void ConfigureServices(IServiceCollection services)
       "Microsoft.EntityFrameworkCore.Database.Command":  "Information" // add for logging
     }
   },
+  // connectionstring
   "ConnectionStrings": {
     "SqlConnectionString": "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = DatabaseName"
   }
 ```
 
-To be able to initialize a the context from the startup file, the context needs a constructor.
+To be able to initialize the context from the startup file, the context needs a constructor that takes
+options as a parameter.
 ```C#
 public MyGamesContext(DbContextOptions<MyGamesContext> options) : base(options)
 {
@@ -43,6 +49,6 @@ from this context.
 
 Refactor the context file, remove the connection to the database and logging.
 
-
+## Startup controller
 Change the launch urls to the required one in Properties -> launchsettings (both places).\
 The logging from the database ban be seen in the output window, show output from the ASP.NET project.

@@ -30,5 +30,18 @@ battle.SamuraiBattle.Add(new SamuraiBattle { SamuraiId = 21 });
 _context.SaveChanges();
 ```
 
+### Adding connection and one side of the relationship
+When adding a connection between one aleary existing entity and one none existing entity, this
+can also be done in one operation by atting the new entity as a grandchild.
+
+```C#
+var newSamurai = new Samurai { name = "New entiry" };
+
+// where battle is the specific battle object we want
+// the samuraiId will be added automatically
+battle.SamuraiBattles.Add(new SamuraiBattle { Samurai = newSamurai });
+_contest.Battles.Attach(battle);
+```
+
 ## Update and delete
 write when have more complex examples, after games project

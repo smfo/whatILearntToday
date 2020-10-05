@@ -50,7 +50,7 @@ Startup project 'project' targets framework '.NETStandard'. There is no runtime 
 ```
 
 The Default Project in the Package Manager Console is set to the context project which is not executable, but more like an interface. 
-An interface cannot be initialised, so oi order to actually do somehting the Startup project of the namespace needs to be set to an executable project. This is a project that uses .NET Core instead of .NET Standard, like a console project. In VS this can be done by right clicking the project and selecting "Set as startup project".
+An interface cannot be initialised, so in order to actually do somehting the Startup project of the namespace needs to be set to an executable project. This is a project that uses .NET Core instead of .NET Standard, like a console project. In VS this can be done by right clicking the project and selecting "Set as startup project".
 
 ## Reverting migration
 If the migration is not added to the database, the migration can be removed by using

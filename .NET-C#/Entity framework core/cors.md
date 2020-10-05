@@ -49,7 +49,7 @@ The policy does not have to be set as a string, but can be hardcoded as well.
 ## Attributes
 Used to appliy different policies to different endpoints in the application.
 
-The policies are set in the setup. Defile one default policies and as many other policies as deciered.
+The policies are set in the setup. Define one default policy and as many other policies as deciered.
 ```C#
 public void ConfigureServices(IServiceCollection services)
     {

@@ -3,6 +3,7 @@
 
 The javascript way of changing css classes in React depending on conditions
 
+Without cn
 ```javascript
 export default function Square(props) {
 

@@ -45,45 +45,15 @@ Preferences: Open Keyboard Shortcuts (JSON)
 		}
 	},
 
-	//md javascript
+	//md code snipet
 	{
-		"key": "ctrl+shift+j",
+		"key": "ctrl+alt+m",
 		"command": "editor.action.insertSnippet",
 		"when": "editorTextFocus",
 		"args": {
-			"snippet": "```javascript ${TM_SELECTED_TEXT}$1 $2 ```"
+			"snippet": "```${TM_SELECTED_TEXT}$1+${enter}+```"
 		}
 	},
-
-	//md html
-	{
-		"key": "ctrl+shift+h",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "```html ${TM_SELECTED_TEXT}$1 $2 ```"
-		}
-	},
-
-	//md css
-	{
-		"key": "ctrl+shift+cs",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "```css ${TM_SELECTED_TEXT}$1 $2 ```"
-		}
-	},
-
-	//md c#
-	{
-		"key": "ctrl+shift+c",
-		"command": "editor.action.insertSnippet",
-		"when": "editorTextFocus",
-		"args": {
-			"snippet": "```c#(${TM_SELECTED_TEXT}$1)$2 ```"
-		}
-	}
 ]
 
 
