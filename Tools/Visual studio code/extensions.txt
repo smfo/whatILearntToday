@@ -1,0 +1,9 @@
+
+Prettier - formatting
+Auto Rename Tag - automatically edits the tag pair (HTML)
+TSLint - lint check, typescript
+CSS Peek - allow goTo and peek for css classes
+GitLense - Visualiza code authorship (history) using git
+IntelliSense for CSS class names in HTML - CSS class name autocomplete
+ESLint - variable validation etc. javascript
+snapshot-tools  - shows snapshots inline on hoover
