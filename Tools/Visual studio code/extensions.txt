@@ -6,4 +6,6 @@ CSS Peek - allow goTo and peek for css classes
 GitLense - Visualiza code authorship (history) using git
 IntelliSense for CSS class names in HTML - CSS class name autocomplete
 ESLint - variable validation etc. javascript
-snapshot-tools  - shows snapshots inline on hoover
+snapshot-tools  - shows snapshots inline on hoover (testing)
+vscode-icons - vs code file icons
+Es7 React/Redux/GraphQL/React-Native snippets - shortcuts for basic code
