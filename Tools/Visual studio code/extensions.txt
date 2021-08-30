@@ -9,3 +9,4 @@ ESLint - variable validation etc. javascript
 snapshot-tools  - shows snapshots inline on hoover (testing)
 vscode-icons - vs code file icons
 Es7 React/Redux/GraphQL/React-Native snippets - shortcuts for basic code
+vscode-styled-components - Syntax for styled components (react)
