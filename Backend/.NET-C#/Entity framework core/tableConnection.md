@@ -24,7 +24,7 @@ public class Student
 ```
 
 The name of the variable, here Courses, is not important. The thing that connects the two tables are
-that the course entity class is being used.\
+that the Course entity class is being used.\
 The program will then automatically look for a foreign key in the Course object that decides which student it belongs to.
 The default is to look for a field what starts with the name of the entity class + id, so StudentId.\
 Here, there is no "StudentId" in Course so there will be an error "No StudentId found".\

@@ -21,19 +21,27 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
+// Custom components have a different syntax.
+const StyledContainer = styled(ResultsContainer)`
+	height: 100%;
+	width: 100%
+`
+
 // Use Title and Wrapper like any other React component – except they're styled!
 export const ... {
 render(
+<StyledContainer>
   <Wrapper>
     <Title>
       Hello World!
     </Title>
   </Wrapper>
+</StyledContainer>
 );
 }
 ```
 
-Define the styled components outside the render function.Otherwise the styled components will be recreaded on every render.
+Define the styled components outside the render function. Otherwise the styled components will be recreated on every render.
 
 
 More complex example
@@ -44,6 +52,7 @@ interface StyledDropDownButtonProps {
 	color: DropdownColorStyle;
 }
 
+// Use an interface to decied which props the styled component needs. They are added like reguler props.
 const StyledDropDownButton = styled.button<StyledDropDownButtonProps>`
 	font-weight: 500;
 	background-color: ${(props) => color.splitButton.getBackground(props.color).hex};

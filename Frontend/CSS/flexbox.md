@@ -9,10 +9,10 @@ the css related to this container will deside the orientation and flow of the el
 .container{
     display: flex;
     flex-direction: row | row-reverse | column | column-reverse;
-    flex-wrap: nowrap | warp | warp-reverse;
     /* should the elements by all means try to fit into one line or should they wrap across multiple lines */
-    flex-flow: <flex-direction> <flex-warp>;
+    flex-wrap: nowrap | warp | warp-reverse;
     /* combining direction and wrap ex. flew-flow: row wrap; */
+    flex-flow: <flex-direction> <flex-warp>;
     justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
 }
 ```
@@ -39,10 +39,10 @@ the css related to this container will deside the orientation and flow of the el
 
 ```CSS
 .item{
+  /* by default items follow the source order, however this can be changed to follow the order specified */
     order: <integer>;
-    /* by default items follow the source order, however this can be changed to follow the order specified */
-    flex-grow: <number>;
     /* should some of the elements get more space than others */
+    flex-grow: <number>;
     flex-shrink: <number>;
 }
 ```

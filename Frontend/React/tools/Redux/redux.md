@@ -6,7 +6,7 @@ Used to hold global states\
 ## Principle
 
 All states are stored in the store. This is global and can be accessed by any component in the application. Sort of like a client side, local db.\
-States cannor be directly changed by the components. Instead they ammit actions that trigger changes. An action is an object with a type property and some data.\
+States cannor be directly changed by the components. Instead they emmit actions that trigger changes. An action is an object with a type property and some data.\
 The part that actually changes the state is the reducer. These are funtions that take the current state and an action as parameters and use these to update the state in the store.
 
 After the store is updated, React rerenders every component connected to this data.
@@ -15,7 +15,7 @@ After the store is updated, React rerenders every component connected to this da
 
 Events happening, must have a type property.
 
-This is an action creator, the are not required, but recommended to use. The action itself is the object being retuned.
+This is an action creator, they are not required, but recommended to use. The action itself is the object being retuned.
 
 ```JSX
 //save the action names as constants, to prevent spelling errors
@@ -203,85 +203,6 @@ Also see "state- setup".
 <Provider store={store}>
     <App />
 </Provider>
-```
-
-### Connect
-
-Wraps a component so it is connected to the Redux store. What state and what actions do you want to pass.
-
-```JS
-import { connect } from "react-redux";
-
-export default connect(mapStateToProps, mapDispatchToProps)(ComponentName);
-```
-
-**mapStateToProps:** which states should be exposed as props on the component. The component will subscribe to the redux store updates. which states are available to this component.
-
-```JS
-function mapStateToProps(state, ownProps){
-    return {authors: state.authors};
-}
-```
-
-ownProps are props that belong to the component, importing this arg makes the rest of the components props available in mapStateToProps.
-
-```JS
-function mapStateToProps(state, ownProps) {
-  //accessing match from Route props
-  const slug = ownProps.match.params.slug;
-  const course =
-    slug && state.courses.length > 0
-      ? getCourseBySlug(state.courses, slug)
-      : newCourse;
-  return {
-    course,
-    courses: state.courses,
-    authors: state.authors,
-  };
-}
-```
-
-**mapDispatchToProps:** which actions are available to this component. This can be written in a number of ways, one example:
-
-```JS
-import * as courseActions from "../../redux/actions/courseActions";
-// Remember to set the PropTypes too!
-
-//manual approach
-function mapDispatchToProps(dispatch){
-    return{
-        loadCourses: () => {
-            dispatch(courseActions.loadCourses());
-        },
-        createCourse: (course) => {
-            dispatch(courseActions.createCourse(course));
-        },
-        updateCourse: (course) => {
-            dispatch(courseActions.updateCourse(course));
-        }
-    };
-}
-
-this.props.loadCourse();
-
-//bindActionCreators
-function mapDispatchToProps(dispatch){
-    return {
-        //wraps all the actions from courseActions in dispatch
-        actions: bindActionCreators(courseActions, dispatch)
-    }
-}
-
-this.props.actions.loadCourse()
-
-//as object
-const mapDispatchToProps = {
-    loadCourse: courseActions.loadCourse,
-    createCourse: courseActions.createCourse,
-    updateCourse: courseActions.updateCourse
-}
-
-this.props.loadCourse();
 ```
 
 ### useSelector and useDispatch

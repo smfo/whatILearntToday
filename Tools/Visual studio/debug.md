@@ -1,6 +1,6 @@
 # Debugging
 
-### Debugging controls
+## Debugging controls
 Step into F11
 Step over F10
 Step out Shift + F11: go back to the parent calling method
@@ -38,7 +38,7 @@ Displays a visual representation of the call stack.
 
 ### Watch window
 While debugging, rightclick on an object and choose "Add watch". The current value of the chosen object will be available
-in the watch window regardless of the value being available in that scope or not. THe values will be monitored and updated
+in the watch window regardless of the value being available in that scope or not. The values will be monitored and updated
 as the app conditues to run.
 
 Watches also let you temporarily manipulate the values in the variables to test different scenarios.\

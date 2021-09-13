@@ -1,0 +1,3 @@
+# Kibana
+
+The Elastic dashboard.

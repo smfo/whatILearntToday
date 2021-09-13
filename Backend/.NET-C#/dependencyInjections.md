@@ -1,7 +1,7 @@
 
 # Dependency injections in .NET
 
-Dependency injection set of design principles and patterns that allows for loosely coupled code. Loosely coupled code is when
+Dependency injection is a set of design principles and patterns that allows for loosely coupled code. Loosely coupled code is when
 components has/make use of very little knowledge of the definition of other components. The benefit of this is that
 it is really easy and quick to swop out layers in the application. Ex. what type of file is being read from, or if its
 a database instead, because the layer next to it only knows what methods the layer has, what it should input in those

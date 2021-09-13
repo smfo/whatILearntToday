@@ -1,9 +1,8 @@
 # Extended style
 
-It is possile to inherit some style from another styled component and override or add more values.
+It is possible to inherit some style from another styled component and override or add more values.
 
 ```jsx
-// The Button from the last section without the interpolations
 const Button = styled.button`
   color: palevioletred;
   font-size: 1em;

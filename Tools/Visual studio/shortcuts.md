@@ -11,3 +11,5 @@ Ctrl + d                copies the current line to the line belowe
 F5                      run program
 Ctrl + shift + F5       save and restart program
 Ctrl + R R              rename variable
+Ctrl + T                search for a file
+Ctrl + -                navigate to the previous file
