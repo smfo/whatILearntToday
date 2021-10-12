@@ -3,6 +3,8 @@
 This is used if we want to style two elements the same way, but we do not want them to be the same type pf html element.\
 We can then use the styled component we want, but rented it `as` another type of html element, so it's behavior will follow this type.
 
+NB: This only works with html tags, not custom components!
+
 ```jsx
 const Button = styled.button`
   display: inline-block;

@@ -10,6 +10,10 @@ Stage this hunk [y,n,q,a,d,/,j,J,g,s,e,?]?
 
 Then commit the chunks that are added.
 
+To only patch one file write this
+```git add --patch path```
+
+
 Here is a description of each option:
 
 y stage this hunk for the next commit\
