@@ -15,3 +15,4 @@ React developer tool - chrome extension to inspect component trees and profilers
 Grepper - displays code answers to search saved by other developers or yourself
 JsonView - formats json (especially helpfull for api output)
 Redux developer tool - gives an overview over state at any point in tume and actions executed
+Better pull request for github - adds a file organiser to github PR
