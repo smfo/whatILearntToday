@@ -18,15 +18,13 @@ var fieldName = "Tiger";
 
 console.log(lotsOfStuff[fieldName])
 
+// Adding a key/value pair
 lotsOfStuff["Snacks"] = "Chips";
 ```
 
 ## Nested objects
 
 This can be used in any of the objects levels.
-
-This example might give an error (depending on the linting rules) saying `"object access via string literals is disallowed"`.
-
 ```js
 interface AllButtonTypes {
 	[key: string]: ButtonProps
@@ -47,11 +45,13 @@ export const oppgaveButtons: AllButtonTypes = {
 	}
 };
 
+	// Use object key as string
 	const buttonProps: ButtonProps = oppgaveButtons[props.buttonType];
 
     const backgroundColor = buttonProps.backgroundColor;
 ```
 
+This example might give an error (depending on the linting rules) saying `"object access via string literals is disallowed"`.
 If you get this error, just rewrite to passing the object key as a variable instead of a string.
 
 ```js
