@@ -79,3 +79,25 @@ git stash drop
 git stash drop stash@{n}
 git stash drop n
 ```
+
+## Display changed files
+
+Display the changed files of the latest stash.
+```c
+// Display files changed for latest stash
+git stash show
+
+// Display files changed for specific stash
+git stash show stash@{n}
+```
+
+## Display changed content
+
+Display the changes of the latest stash.
+```c
+// Display changes for latest stash
+git stash show -p
+
+// Display changes for specific stash
+git stash show -p stash@{n}
+```

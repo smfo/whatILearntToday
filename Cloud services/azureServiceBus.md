@@ -2,7 +2,7 @@
 
 **Message**: a container containing metadata and data. This can be any kind of information. Messages are used to transfer data between different applications and services.
 
-S service bus is as platform-as-a-service (PaaS).`
+A service bus is as platform-as-a-service (PaaS).`
 Azure takes care of the following tasks for you
 
 * Worrying about hardware failures
