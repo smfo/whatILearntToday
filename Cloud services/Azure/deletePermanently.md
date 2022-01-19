@@ -12,3 +12,5 @@ Purge in the cli
 Or in the portal: chose the keyvault overview and click "manage deleted vaults" at the top. Here you can chose to restore or purge the keyvault.
 
 With an account and storage account you are not guaranteed that no one else has created a new one using the same name. In that case your resource cannot be restored.
+
+Soft-delete is not enabled by default!
