@@ -1,7 +1,7 @@
 
 # Disconnected scenarios
 
-Connected scenarios happen when the user is connected to the database from the data is collected to the
+Connected scenarios happen when the user is connected to the database, all through from when the data is collected to the
 data changes are saved. This makes it possible for the database to track what is happening with
 the data and what changes are being made. So if a object is updated, the database knows this and also which fields
 have been changed. This is the case if there is a local storage or the database has a network connection

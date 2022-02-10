@@ -25,7 +25,7 @@ played game. This method only works for connected data! As the user is being tra
 is retrived from the db.
 
 ```C#
-var user = _ context.User.FirstOrDefault();
+var user = _context.User.FirstOrDefault();
 user.PlayedGames.Add(new PlayedGame
 {
     Name = "Hollow Knight",
@@ -38,7 +38,7 @@ _context.SaveChanges();
 
 This works for disconnected data, but will update the entire user object, not just the PlayedGames field.
 ```C#
-var user = _ context.User.FirstOrDefault();
+var user = _context.User.FirstOrDefault();
 user.PlayedGames.Add(new PlayedGame
 {
     Name = "Hollow Knight",
