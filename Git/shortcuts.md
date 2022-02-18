@@ -37,22 +37,43 @@ lg1: id - since - commit message - author (- branch if head is here)\
 lg2: id - date - since - commit message - author (- branch if head is here)
 br: list all branche with latest commit message, author and since
 
-## Espace to a shell
+## Shell commands
 
-Using `!` lets you espace to a shell instead of just writing plain text.
-
-This lets you use parameters, execute multiple git commands with a single alias and more.
-
-### Use variables
-
-* $1 - the first parameter passed to the command
-* $2 - the second param passed to the command, and so on..
-* $@ - all command like parameters passed
+Commends without `!` are treaded as a Git command. Using `!` runs the command as its own in the shell. This lets you use parameters, execute multiple git commands with a single alias and more.
 
 ### Combine multiple commands
+
+**&&** Will run multiple commands, if the previous commands passes.
 ```
 app = "!git stash apply 0 && git stash apply 1"
 
 // Git command
 git app
 ```
+
+**;** Will run multiple commands, regardless of if the previous commands pass or not.
+
+```
+app = "!git stash apply 0 ; git stash apply 1"
+
+// Git command
+git app
+```
+
+### Functions
+
+To perform a long list of commands and use variables, it is easies to use functions. They are written on this form
+```
+alias = "!f() {<function>;}; f"
+
+ex.
+cop = "!f() { git checkout $1 && git pull; }; f"
+```
+
+Remember to connect the lines together using ; or && and to end the last line with ;
+
+### Use variables
+
+* $1 - the first parameter passed to the command
+* $2 - the second param passed to the command, and so on..
+* $@ - all command like parameters passed
