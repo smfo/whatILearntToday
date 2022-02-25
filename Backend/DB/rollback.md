@@ -18,8 +18,24 @@ DELETE from Books
 WHERE id = 15
 ```
 
+Using rollback: we will try to execute these commands, however the changes will not be commited to the database when finished
 ```SQL
--- Using transactions
+BEGIN TRANSACTION
+ 
+  INSERT INTO Books 
+  VALUES (20, 'Book15', 'Cat5', 2000)
+ 
+  UPDATE Books
+  SET price = '25 Hundred' WHERE id = 20
+ 
+  DELETE from Books
+  WHERE id = 20
+ 
+ROLLBACK TRANSACTION
+```
+
+Using transactions: these changes will be commited to the database if all goes well
+```SQL
 BEGIN TRANSACTION
  
   INSERT INTO Books 
@@ -82,7 +98,7 @@ DELETE from Books
 WHERE id = 15
 ```
 
-The opposite of this is explicit transactions where every transaction has to begin with `begin transaction` and end with `commit transaction` or `rollback transaction`.
+The opposite of this is explicit transactions, where every transaction has to begin with `begin transaction` and end with `commit transaction` or `rollback transaction`.
 
 ## Transaction name
 
