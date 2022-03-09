@@ -1,6 +1,6 @@
 ## Using map
 
-When looping through variables we use map. The mapping has to return something, therefore you should check be.\
+When looping through variables we use map. The mapping has to return something, therefore you should first check that the array is not empty.\
 Both in jsx and the javascript we can return both html and objects.
 
 ```javascript
