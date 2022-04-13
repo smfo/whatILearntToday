@@ -25,7 +25,7 @@ app.MapHealthChecks("/healthz", new HealthCheckOptions
 
 The app reports availability by responding processing requests.
 
-A health check endpoint is created to respond with a health respond. By default no specific checks of dependencies or subsystems are registered. If the application responds it is good.\
+A health check endpoint is created to respond with a health respond. By default no specific checks of dependencies or subsystems are registered. If the application responds, it is good.\
 The default response is a `HealthStatus` enum with `HealthStatus.Healthy, HealthStatus.Degraded, HealthStatus.Unhealthy`.
 
 HealthCheck statuses can be registered with `AddHealthChecks`, and a health check endpoint is created by calling `MapHealthChecks/UseHealthChecks`.
