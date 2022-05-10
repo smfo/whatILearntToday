@@ -10,4 +10,9 @@ No cloud functions in paid plan.\
 Authentication, analytics (google), app distribution, crashlytics mm always free.
 
 firebase.community
-cohttps://www.youtube.com/c/firebase
+https://www.youtube.com/c/firebase
+
+## Projects and apps
+
+A project is where all your resources are stored, db, authentication, security rules etc.\
+It can contain multiple apps, these are just platform variants of the same application.

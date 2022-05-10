@@ -16,7 +16,7 @@ Navigate to cloud Firestore in the Firebase console and create a database.
 **Test mode**: Good for getting started, will allow **anyone** to read and overwrite your data. Make sure to change these settings after finishing testing!\
 Use when: getting started with web/mobile applications.
 
-**Locked mode**: Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access the db.\
+**Locked mode**: Denies all reads and writes from mobile and web clients until access is given through the db security rules. Your authenticated application servers can still access the db.\
 Use when: getting started wih backend server client library.
 
 ## Project setup
@@ -26,5 +26,7 @@ Import firestore and create a firestore instance.
 ```js
 import { getFirestore } from "firebase/firestore";
 
-const db = getFirestore();
+export const db = getFirestore();
 ```
+
+We will use this to access the Firestore for the application.
