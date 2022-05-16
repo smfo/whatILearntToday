@@ -26,20 +26,3 @@ void main() {
   print(name);
 }
 ```
-
-### Dynamic type
-
-Variables of dynamic type can be changed.
-
-``` dart
-void main() {
-  dynamic name = "Synne";
-  print(name);
-  name = 30;
-  print(name);
-}
-```
-
-```dart
-String greeting() => "hello";
-```
