@@ -12,8 +12,9 @@ Add these packages to the `pubspec.yaml` dependencies.
 ## Initialize
 
 Install flutterfire `dart pub global activate flutterfire_cli`
-and add the path to system variables `C:\Users\*username*\AppData\Local\Pub\Cache\bin`.\
-Navigate to the project in the flutter terminal and configure `flutterfire configure` and follow the instructions. This will create a firebase_options.dart file in the project.\
+and add the path to system variables `C:\Users\*username*\AppData\Local\Pub\Cache\bin`.
+
+Navigate to the project in the flutter terminal, `flutterfire configure` and follow the instructions. This will create a firebase_options.dart file in the project.\
 We use this to initialize the app when running the main startup method.
 
 

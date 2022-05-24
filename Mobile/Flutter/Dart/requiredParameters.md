@@ -20,7 +20,7 @@ final value = Test();
 ```
 
 If the parameters are surrounded by curly braces, they become named parameters as well as optional.\
-Therefore the parameters must either be nullable of have a default value
+Therefore the parameters must either be nullable or have a default value
 
 ```dart
 // Nullable
@@ -41,7 +41,7 @@ final value = Test();
 
 ## Required named parameters
 
-Somw times we want to use required named parameters where there is no good default value. To do this we add the required keyword toe the constructor.
+Some times we want to use required named parameters where there is no good default value. To do this we add the required keyword to the constructor.
 
 ```dart
 class Test {
