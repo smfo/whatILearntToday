@@ -45,6 +45,26 @@ Setting up a snapshot stream
 
 ## Update
 
+```dart
+void updateBook(Book book) async {
+    await booksCollection.doc(book.id).update(book.toJson());
+  }
+```
+
 ## Add
 
+```dart
+final CollectionReference booksCollection = FirebaseFirestore.instance.collection('books');
+
+Future<DocumentReference> addBook(Book book){
+    return booksCollection.add(book.toJson());
+  }
+```
+
 ## Delete
+
+```dart
+  void deleteBook(Book book) async {
+    await booksCollection.doc(book.id).delete();
+  }
+```
