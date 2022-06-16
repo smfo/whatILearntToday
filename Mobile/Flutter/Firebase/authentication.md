@@ -18,3 +18,17 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
     }
   }
 ```
+
+## Add SHA fingerprint (Google sign-in)
+Needed to make Google sign in work.
+
+Run this from the terminal (remove username if ran from the username folder)
+```
+// The password is android
+keytool -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+```
+
+This will print a lot of information.
+
+In the firabase console navigate to `Project settings -> General -> My apps` and select the android app. Add SHA-1 and SHA-256.\
+If you get problems in production, check that you have done this.
