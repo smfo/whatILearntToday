@@ -1,4 +1,4 @@
-# Unable to create an orbject of type 'db'
+# Unable to create an object of type 'db'
 
 Error:
 ```
