@@ -1,4 +1,4 @@
-# Deploy and greate firebase project
+# Deploy and create firebase project
 
 How to create and deploy a firebase project.
 

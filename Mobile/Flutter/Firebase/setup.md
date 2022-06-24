@@ -19,13 +19,15 @@ We use this to initialize the app when running the main startup method.
 
 
 https://firebase.flutter.dev/docs/overview/#get-to-know-firebase-for-flutter
+
+Initialize firebase when the project starts my adding this to the main file.
 ```dart
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+  await Firebase.initializeApp(   
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(MyApp());

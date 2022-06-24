@@ -47,7 +47,7 @@ To override the button color
             style: style,
             onPressed: () {},
             // Define button styling
-            child: child: const Text('Sign out', style: TextStyle(color: Colors.white)),
+            child: const Text('Sign out', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
