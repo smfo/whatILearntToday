@@ -1,7 +1,7 @@
 # Form Builder
 
 A package that makes using forms a lot easier!\
-You don't have to build the form from scratch adding calidators, onchange, collect final user input etc.
+You don't have to build the form from scratch adding validators, onchange, collect final user input etc.
 
 There are also included common input fields and validators.
 
@@ -13,6 +13,8 @@ flutter pub add flutter_form_builder
 
 Create a `_formkey` of type `GlobalKey<FormBuilderState>()`. add a `FormBuilder` widget and provid it with your key. Built in and custom input fields can be added in the FormBuilder widget.\
 For each field you can add `FormBuilderValidators`. And through the formkey you can access the forms current state, values, reset, save and validate.
+
+NB! You have to first save the currentState in order to be able to access it's values.
 
 ```dart
 class CreateUserScreen extends StatelessWidget {
@@ -51,6 +53,7 @@ class CreateUserScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
+                        // Don't forget to save the form!
                         _formKey.currentState!.save();
                         if (_formKey.currentState!.validate()) {
                           // Access a specific input field value
