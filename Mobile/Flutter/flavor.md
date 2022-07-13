@@ -3,7 +3,7 @@
 A flavor is essentially a version of your app.\
 You might need different flavors for different environments, they might have specific db urls, accesstokens etc. A flavor can also represent a slightly different version of your app, like a paid/free version.
 
-This file will talk about how to use flavors to set up different config in the application. There is another on how to connect flavors to different firebase project and look into launcj.json as well.
+This file will talk about how to use flavors to set up different config in the application. There is another on how to connect flavors to [multiple firebase projects](\Firebase\environments.md) and look into launch.json for VSCode as well.
 
 **Build mode in Flutter**\
 In Flutter there are three build modes, depending on what the user want to use the application for.\
@@ -16,31 +16,51 @@ You can query which build mode your app is running in and provide different vari
 
 ## Set up config
 
-Config object and setup
+We can create a config object that contains flavor specifiv variables we need to access throughout the app.
+
+
+```dart
+enum Flavor {
+  dev,
+  prod
+}
+
+class FlavorConfig {
+  static String appName ="";
+  static Flavor flavor = Flavor.dev;
+  static String collection = "";
+
+  FlavorConfig();
+
+  static String get collectionName {return collection;}
+  static String get name {return appName;}
+  static bool isProduction() => flavor == Flavor.prod;
+  static bool isDevelopment() => flavor == Flavor.dev;
+}
+```
 
 We then need to create a main file for each flavor. Here we will define the flavor for the file and set up the config.
 
 ```dart
-void main() {
-  FlavorConfig(flavor: Flavor.QA,
-      color: Colors.deepPurpleAccent,
-      values: FlavorValues(baseUrl: "https://raw.githubusercontent.com/JHBitencourt/ready_to_go/master/lib/json/person_qa.json"));
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    name: "prod",
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  FlavorConfig.collection = "events";
+  FlavorConfig.appName = "production";
+  FlavorConfig.flavor = Flavor.prod;
+
+  runApp(const MyApp());
 }
 ```
 
 Becaus of the config setup, we can now access the flavor instance anywhere in the application
 
 ```dart
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Flutter Ready to Go')),
-      body: Center(child: Text("Flavor: ${FlavorConfig.instance.name}")),
-    );
-  }
-}
+class EventService {
+  final CollectionReference eventCollection =
+      FirebaseFirestore.instance.collection(FlavorConfig.collectionName);
 ```
-
-Add banner to nice to have?
