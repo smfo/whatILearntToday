@@ -59,7 +59,7 @@ We have the following data:
 --   Twitter  | Hats     | 90         
 ```
 
-We want to calculate the total revenue for each channel. This can be donw by using group by.
+We want to calculate the total revenue for each channel. This can be done by using group by.
 
 ```sql
 Select Channel, sum(Revenue) as Total_revenue
