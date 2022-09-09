@@ -1,9 +1,11 @@
 
+# Code shortcuts
+
 Add custom shortcuts to keybindings.json
 Ctrl + Shift + P
 Preferences: Open Keyboard Shortcuts (JSON)
 
-
+```js
 [
     //log with comment + (value)
 	{
@@ -47,15 +49,15 @@ Preferences: Open Keyboard Shortcuts (JSON)
 
 	//md code snipet
 	{
-		"key": "ctrl+alt+m",
+		"key": "ctrl+alt+s",
 		"command": "editor.action.insertSnippet",
 		"when": "editorTextFocus",
 		"args": {
-			"snippet": "```${TM_SELECTED_TEXT}$1+${enter}+```"
+			"snippet": "```${TM_SELECTED_TEXT}\n$1\n```"
 		}
 	},
 ]
-
+```
 
 Others:
 

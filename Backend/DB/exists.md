@@ -15,7 +15,7 @@ where exist(
 
 ## Vs. window functions
 
-How does this differn from window functions?\
+How does this differ from window functions?\
 A lot, when I remembered how window functions work.
 
 Exists is used to filter the rows used in the query, while not adding any new information from the table used to filter. It just happens to contain some relevant data the tables you actually want information from don't have.\

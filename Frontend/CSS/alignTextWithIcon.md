@@ -20,7 +20,7 @@ const StyledText = styled.div`
 		</>
 ```
 
-Other values for vartical-align:
+Other values for vertical-align:
 * bottom
 * baseline
 * text-bottom
