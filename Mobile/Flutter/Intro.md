@@ -4,6 +4,7 @@ SDK made by Google to create single source mobile apps for android and iOS.
 
 Flutter uses a programming language called `dart`.
 
+Installing Flutter
 ```
 C:\src>git clone https://github.com/flutter/flutter.git -b stable
 ```

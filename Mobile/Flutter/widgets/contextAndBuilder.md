@@ -14,7 +14,7 @@ The error you get can be resolved by moving the child widget into it's own file,
 
 A builder essentially creates a new widget inside another widget definition. You get a new buildcontext and everything, without having to create a new file.
 
-By doing this you can create a reference, context, to a widget like the one in the example above.
+By doing this you can create a reference, context, to a widget like the one in the example belove.
 
 ```dart
 Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ Widget build(BuildContext context) {
         onPressed: () {
           // Fails because Scaffold.of() doesn't find a Scaffold
           // above this widget's context.
+          // As the context refers directly to the Scaffold itself.
           print(Scaffold.of(context));
         },
         child: Text('hasAppBar'),
@@ -37,7 +38,7 @@ Widget build(BuildContext context) {
 Widget build(BuildContext context) {
   return Scaffold(
     body: Builder(
-        // A new context if created, referensing the Center widget
+        // A new context is created, referensing the Center widget
       builder: (BuildContext newContext) {
         return Center(
           child: TextButton(
