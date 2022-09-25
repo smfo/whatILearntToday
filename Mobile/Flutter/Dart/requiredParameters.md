@@ -5,7 +5,7 @@ From Dart 2.12:
 
 There are multiple ways to get parameters when initialising a class.
 
-When using this method, the parameters are by default requierd.
+When using `this` method, the parameters are by default requierd.
 
 ```dart
 class Test {

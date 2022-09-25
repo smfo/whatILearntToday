@@ -22,7 +22,7 @@ flutter:
 
   assets:
    - assets/img/lake.jpg
-#    - assets/img to add the whole folder
+#    - assets/img/ to add the whole folder
 ```
 
 ```dart

@@ -13,3 +13,19 @@ To run emilator, not in browser, install android studio.\
 After setting up an emilator here, run `flutter doctor`. If there are probems with the android lisense, rund the suggested commands to install and accept.
 
 To hot reload press `r` in the same terminal that runs the app.
+
+## Handle const
+
+Let VSCode automatically handle const values! Only adding them, not removing when that is needed.
+
+View -> Command palette -> Open user settings (JSON)
+
+Add this
+
+```json
+"editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+```
+
+On save, VSCode will handle all missing consts!

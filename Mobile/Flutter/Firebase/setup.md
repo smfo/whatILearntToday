@@ -20,7 +20,7 @@ We use this to initialize the app when running the main startup method.
 
 https://firebase.flutter.dev/docs/overview/#get-to-know-firebase-for-flutter
 
-Initialize firebase when the project starts my adding this to the main file.
+Initialize firebase when the project starts by adding this to the main file.
 ```dart
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
