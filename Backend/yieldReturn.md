@@ -58,7 +58,7 @@ public static IEnumerable GenerateIntegers(int maxValue)
   	}
 ```
 
-For the first run the generator will break at the value 5, even though the function if supposed to run until 10. When called again, the generator will start from scratch, returning values starting at 1.
+For the first run the generator will break at the value 5, even though the function is supposed to run until 10. When called again, the generator will start from scratch, returning values starting at 1.
 
 ## Limitations
 
