@@ -5,6 +5,12 @@ Step into F11
 Step over F10
 Step out Shift + F11: go back to the parent calling method
 
+## Bookmarks
+
+Like breakpoints they can be displayed in a window in the solution. Unlike breakpoints they don't change anything when the code is run.
+
+`ctrl + k + k` to set a breakpoint at the selected line.
+
 ## Breakpoints
 
 ### Manage breakpoints
@@ -16,6 +22,11 @@ Hit Count Column: show how many times the break points have triggered during exe
 ### Contitional breakpoints 
 Set a break point, right click on it and chose "conditions". By setting conditions, the program will only break at the 
 break point when these conditions are met.
+
+### Temporary breakpoints
+
+Rightclick and select "insert temporary breakpoint".\
+The breakpoint will dissapear after the degun session has finished.
 
 ### Trace points/print
 Offer information about the history of what have happened.\

@@ -34,6 +34,9 @@
  See upDown for info about the migration file.
 
 ## Update-Database
+
+`dotnet ef update database`
+
  After a migration is created the database needs to be updated to invoke the changes.\
  Adding `-verbose` logs everything that is done by this command.\
  
