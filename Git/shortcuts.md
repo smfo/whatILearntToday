@@ -34,7 +34,9 @@ cob = checkout -b
 ra = restore .
 cop = "!f() { git checkout $1 && git pull; }; f"
 force = push --force-with-lease --set-upstream origin
-acp = "!f() { git pull && git add . && git commit $1 && git push; }; f"
+
+<!-- Call as git acp <commit message here, no quotes" -->
+acp = "!f() { git pull && git add . && git commit -m "$1" && git push; }; f"
 ```
 
 lg1: id - since - commit message - author (- branch if head is here)\
