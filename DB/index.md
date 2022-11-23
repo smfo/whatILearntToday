@@ -41,18 +41,43 @@ Multiple records related to the same thing are stored in the same file. These fi
 
 ![Cluster](./cluster.png "Cluster")
 
+This is a way to store tha actual data in the table. Because of this you can only have one clustered index per table.
+
 ### Non-clustered/secondary indexing
 
 This index tells you where the data lies using pointers/references to where the data is actually stored.
 
-The data is not physically stored in order of the index, this means we have to have dense ordering. Ass all records have to be represented.
-
-The fact that we only have a pointer, not the actual data, means that this requires more time than a clustered index.
+Unlike with a clustered index, the data is not physically stored in order of the index, this means we have to have dense ordering. As all records have to be represented.
 
 ![Secondary](./secondary.png "Secondary")
+
+This index only contains the columns defined in the index, as well as a pointer to the actual data. For example the primary key to the clustered index.
+
+Columns specified as `include` are stored in the leaf node of the nonclustered index.
+
+If an index contains all columns necessary for the query, it is said to be `covering for a specific query`. In this case there is no need to look up the rows in the cluster as well, this can make the query significantly quicker. (This means everything in your `select` and have to be present. Columns in `where` can also be included as a part of the actual index).
+
+```sql
+CREATE NONCLUSTERED INDEX [ IX_ItemResult_EpsDeliveryId ] on [dbo].[ItemResult]
+(
+    [EpsDelivery] ASC
+)
+INCLUDE([ItemId], [Score], [MaxScore]) WITH (STATISTICS_NORECOMPUTS = OFF, DROP_EXISTING = FF, ONLINE)
+GO
+```
+
+The index above is over the column EpsDelivery, and includes ItemId, Score and MaxScore.
 
 ### Multilevel indexing
 
 With a lot of data, the index size also grows and might become to large to store in a single level. This index separates the index into smaller blocks which in turn point to the data blocks where the data is available.
 
 ![Multilevel](./multilevel.png "Multilevel")
+
+## Traversing
+
+There are multiple ways the db can look for data in the tables.
+
+**Index seek**: using the index key to look up the specific rows in tha bale.
+
+**Index scan**: scan the whole table, or cluster, to look for the desiered tables. With enough rows this will turn very expensive. With smaller tables a scan can be more beneficial than seek.
