@@ -29,3 +29,7 @@ To ignore the first commit in the interval, use this.
 ```js
 git cherry-pick id1..id2
 ```
+
+## Conflict
+
+If a conflict occurs you have to solve this, then add and commit the changes. After this you have to continue the cherry-picking, `git cherry-pick --continue`.
