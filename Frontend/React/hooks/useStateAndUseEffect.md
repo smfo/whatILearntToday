@@ -30,3 +30,5 @@ useEffect(() => {
 }, [currentStudent])
 
 ```
+
+By only providing an empty array as the useEffect condition, the state will only be updated once, when the component mounts.
