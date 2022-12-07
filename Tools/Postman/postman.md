@@ -10,7 +10,8 @@ A collection is essentially a project. It is a folder where you can save request
 use for documentation. The requests can be saved with an appropriate name and a description.
 
 ### Examples
-
+An example consists of a request (method, url, parameters, headers, body) and it's response (stats code, body, headers). You create them by adding them to a request in a collection.\
+The documentation automatically includes any example added to a collection in its documentation.
 
 ## Collaboration:
 Invite other users to a workspace. Add collections directly there or add already generates collections 
