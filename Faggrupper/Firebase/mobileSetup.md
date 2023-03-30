@@ -7,6 +7,6 @@ build.gradle -> android -> default config -> applicationid
 
 * In `android/build.gradle` add the `classpath 'com.google.gms:google-services:n.n.n'` dependency the Firebase console gives you
 
-* In `android/app/build.gradle` add `apply plugin: 'com.google.gms.google-services'` above andoind -> ... and dependency `implementation platform('com.google.firebase:firebase-bom:30.0.1')`
+* In `android/app/build.gradle` add `apply plugin: 'com.google.gms.google-services'` above android -> ... and dependency `implementation platform('com.google.firebase:firebase-bom:30.0.1')`
 
 Now check if the project [runs](./../../Mobile/Flutter/VSCode.md#run-emilator)

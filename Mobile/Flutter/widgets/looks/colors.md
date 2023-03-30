@@ -40,3 +40,17 @@ Use sparcly, for elements that are supposed to stand out, if you don't want to u
 ## "On" colors
 
 These refer to elements that appear on top on a primary, secondary, background, surface or error color. For example text in an elevated button. The color of the button is primary, while the text is onPrimary.
+
+## Error: The argument type 'Color?' can't be assigned to the parameter type 'Color'
+
+Change to write the color on this format
+
+```dart
+color: Colors.blue.shade300
+```
+
+## Related
+
+You can also add and use your own material [color](../../utils/materialSwatch.md).
+
+More about [themes](theme.md)

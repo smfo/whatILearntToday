@@ -25,10 +25,11 @@ flutter:
 #    - assets/img/ to add the whole folder
 ```
 
+In the widgets, use the relative path to the asset (rightclick and chose 'Copy relative path') in order to avoid a 'the following assertion was thrown resolving an image codec unable to load asset' error.
 ```dart
 // In widget
 
-Image.asset('../assets/img/lake.jpg',
+Image.asset('assets/img/lake.jpg',
               width: 600, height: 240, fit: BoxFit.cover),
           titleSection,
 ```

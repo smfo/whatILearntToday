@@ -6,10 +6,11 @@ An appbar is the header of an app, typically used directly inside the first Scaf
 
 Actions are displayed to the right of the appbar title, typically buttons like "Sign in", "Menu" etc.
 
-If these actions are TextButtons, they will not be visible if their text color is the same as the appbar backgroun color.\
+If these actions are TextButtons, they will not be visible if their text color is the same as the appbar background color.\
 This will be the case when using ColorScheme.primary and light themed buttons!
 
 To override the button color
+
 ```dart
  @override
   Widget build(BuildContext context) {

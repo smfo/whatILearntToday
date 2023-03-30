@@ -1,6 +1,6 @@
 # Authentication
 
-Instead of using `firebase/auth` and the getAuth... functions, we import `import 'package:firebase_auth/firebase_auth.dart'` to our file and use the `FirebaseAuth` object.
+Instead of using `firebase/auth` and the getAuth... functions like you do with web, we import `import 'package:firebase_auth/firebase_auth.dart'` to our file and use the `FirebaseAuth` object.
 
 ```dart
 import 'package:firebase_auth/firebase_auth.dart';

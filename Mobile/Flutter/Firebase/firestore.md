@@ -18,11 +18,14 @@ final DocumentReference bookDocument = FirebaseFirestore.instance.collection('bo
 final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 // Access document data from collection
-firestore.collection('books').get().then((event) {
+var books = await firestore.collection('books').get().then((event) {
+    List<Books> books = [];
+
     for (var book in event.docs) {
         print("${book.id} -> ${book.data()}");
         books.add(Book.fromSnapshot(book));
       }
+    return books;
 });
 
 // Access document data for one document directly
@@ -33,7 +36,7 @@ firestore.doc('books/8EStAHNexvkeDCOknLjk').get().then((value) {
 
 ### Snapshot
 
-Setting up a snapshot stream
+Setting up a snapshot stream. This listens to the changes in the database and updates whenever anything is changed.
 
 ```dart
   final CollectionReference booksCollection = FirebaseFirestore.instance.collection('books');

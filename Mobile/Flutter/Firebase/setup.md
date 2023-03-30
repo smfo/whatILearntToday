@@ -17,6 +17,8 @@ and add the path to system variables `C:\Users\*username*\AppData\Local\Pub\Cach
 Navigate to the project in the flutter terminal, `flutterfire configure` and follow the instructions. This will create a firebase_options.dart file in the project.\
 We use this to initialize the app when running the main startup method.
 
+Install firebase core\
+`flutter pub add flutter_core`
 
 https://firebase.flutter.dev/docs/overview/#get-to-know-firebase-for-flutter
 

@@ -22,3 +22,5 @@ Column(
           child: Container(),
         ),
 ```
+
+![alt text](expandedFlexible.png "Expanded vs flexible")

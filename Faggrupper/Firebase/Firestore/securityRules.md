@@ -7,7 +7,8 @@ NB! Other rules apply to serverless functions (cloud functions etc), this is cov
 
 Pattern: which document are being secured, what are the rules for securing them
 
-Everyone can read and write anything
+Everyone can read and write anything:
+
 ```
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -19,6 +20,7 @@ service cloud.firestore {
 }
 ```
 
+**Nesting**\
 We nest collections, documents and subcollections. Rules are NOT inheritet future down the tree. So if we want to specify a rule for a collection and all it's subcollections we can use a requesive wildcard `{wildcardname=**}`. When using the recursive wildcard syntax, the wildcard variable will contain the entire matching path segment, even if the document is located in a deeply nested subcollection.
 
 ```
@@ -64,7 +66,7 @@ service cloud.firestore {
 
 ## Requests
 
-Some of the data we can access from the request include auth (the user, with more info if they are valudated by FireAuth) and the data we want to handle. The actual content is in `request.resource.data.{FieldName}`
+Some of the data we can access from the request include auth (the user, with more info if they are valudated by FireAuth) and the data we want to handle. The actual content from the request is in `request.resource.data.{FieldName}`
 
 ```
 service cloud.firestore {
@@ -79,7 +81,8 @@ service cloud.firestore {
 
 By using the data fields from the request, we can enforce some rules for the documentles db structure in firestore.
 
-Note that you access the data values that are actually sent in by the client. If you delete something, will you also send in these same fields or do you have to write seperate rules? In this example all rules apply to all types of reading and writing.
+Note that you access the data values that are actually sent in by the client. If you delete something in the database, as supposed to writing, will you send in the same data fields or do you have to write seperate rules for these requests? In this example all rules apply to all types of reading and writing.
+
 ```
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -96,7 +99,9 @@ service cloud.firestore {
 
 ## Resources
 
-Documents that are already in the database, not the incoming request data we looked at before. We have the same fields as with the other request: metadata and data.
+These are documents that are already in the database, not the incoming request data we looked at before. We have the same fields as with the other request: metadata and data.
+
+NB: not `request.resource`, we are refering to `resource...`
 
 ```
 service cloud.firestore {
@@ -132,14 +137,14 @@ allow read: if get(/database/$(database)/documents/books/$(bookId)/user_data).da
 
 ## Security rules as query
 
-Security rules cannot be used to filter out documents for us. If multiple documents are requested, security rules does not have the time or resources to look at the document data individually. Instead it looks at the rules and the query recived, and if a rule **might** be broken as a result of the request, no data is returned.
+Security rules **cannot** be used to filter out documents for us. If multiple documents are requested, security rules does not have the time or resources to look at the document data individually. Instead it looks at the rules and the query recived, and if a rule **might** be broken as a result of the request, no data is returned.
 
 ```
 service cloud.firestore {
   match /databases/{database}/documents {
     match /books/{bookId} {
         allow read: if
-            rsource.data.status == "published"
+            resource.data.status == "published"
      }
   }
 }

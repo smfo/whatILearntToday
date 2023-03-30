@@ -11,7 +11,7 @@ flutter pub add flutter_form_builder
 
 ## Example
 
-Create a `_formkey` of type `GlobalKey<FormBuilderState>()`. add a `FormBuilder` widget and provid it with your key. Built in and custom input fields can be added in the FormBuilder widget.\
+Create a `_formkey` of type `GlobalKey<FormBuilderState>()`. add a `FormBuilder` widget and REMEMBER TO PROVIDE IT WITH YOUR KEY. Built in and custom input fields can be added in the FormBuilder widget.\
 For each field you can add `FormBuilderValidators`. And through the formkey you can access the forms current state, values, reset, save and validate.
 
 NB! You have to first save the currentState in order to be able to access it's values.
@@ -88,3 +88,30 @@ class CreateUserScreen extends StatelessWidget {
 }
 
 ```
+
+### RangeSlider
+
+Even if it isn't required, this input fields need to have initial values specified to work!
+
+## Validation
+
+`flutter pub add form_builder_validators`
+
+Each input field has a parameter `validator`, this takes a function of build in FormBuilderValidators or custom validators
+
+```dart
+validator: FormBuilderValidators.required(),
+```
+
+To use more than one validator fo rthe field, add the `compose` function and provide it with a list of the validators you want.
+
+```dart
+validator: FormBuilderValidators.compose([
+          FormBuilderValidators.required(),
+          FormBuilderValidators.min(7),
+        ]),
+```
+
+To run the validations use `_formKey.currentState.validate()`.
+
+NB: In order to use validation you cannot return an empty [localization delegates property](../localizationDelegates.md).
