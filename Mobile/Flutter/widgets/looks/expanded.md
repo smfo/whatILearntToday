@@ -24,3 +24,10 @@ Column(
 ```
 
 ![alt text](expandedFlexible.png "Expanded vs flexible")
+
+## Errors
+
+*** InputDecorator, ... cannot have an unbounded width ***\
+This happens when having multiple form fields inside the same Row, Column or Flex, because the field needs to be given width constraints.
+
+This can be solved by placing the fieldwidgets inside an [Expanded](./looks/expanded.md)

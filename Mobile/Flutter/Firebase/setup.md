@@ -18,7 +18,7 @@ Navigate to the project in the flutter terminal, `flutterfire configure` and fol
 We use this to initialize the app when running the main startup method.
 
 Install firebase core\
-`flutter pub add flutter_core`
+`flutter pub add firebase_core`
 
 https://firebase.flutter.dev/docs/overview/#get-to-know-firebase-for-flutter
 
