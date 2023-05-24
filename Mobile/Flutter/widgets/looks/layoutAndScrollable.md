@@ -7,7 +7,7 @@ Basic about flutter layouting.
 
 ## Scrollable
 
-Rows and columns are initially not scrollable. If they do outside of the screens boundaries you will get an error message. In order to solve this, wrap them in a listview.
+Rows and columns are initially not scrollable. If they go outside of the screens boundaries you will get an error. In order to solve this, wrap them in a [Listview](..\listView.md).
 
 Row, Column, ListView
 https://www.flutterbeads.com/space-between-widgets-in-flutter/

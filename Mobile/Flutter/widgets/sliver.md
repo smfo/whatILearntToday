@@ -3,7 +3,7 @@
 Listview, gridview and other components all build on Sliver components.\
 What is sliver? A SliverList is the same as a ListView. Though a ListView is a widget, a SliverList is a sliver and has to be used inside a ScrollView, usually a `CustomScrollView`.
 
-Mot of the time we use the widget version. Though if we want advanced scrolling, such as a list inside a list or an animation you need to use CustomScrollView, hence the slivers.
+Most of the time we use the widget version. Though if we want advanced scrolling, such as a list inside a list or an animation you need to use CustomScrollView, hence the slivers.
 
 ## Nested sliverlist
 
@@ -13,8 +13,8 @@ See example below
 
 ## SliverToBoxAdapter
 
-Flutter has two protocols to draw widgets, Sliver and Box protocol. These cannot blindly we mixed. When mixed you will get this error `A RenderViewport expected a child of type RenderSliver but received a child of type RenderErrorBox`.\
-If you need to use a box element, wrap it in a `SliverToBoxAdapter`.
+Flutter has two protocols to draw widgets, Sliver and Box protocol. These cannot blindly be mixed. When mixed you will get this error `A RenderViewport expected a child of type RenderSliver but received a child of type RenderErrorBox`.\
+If you need to use a box element inside a ScrollView, wrap it in a `SliverToBoxAdapter`.
 
 ```dart
 body: CustomScrollView(

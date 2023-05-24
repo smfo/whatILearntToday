@@ -6,7 +6,7 @@ Wrap the list of widgets in the `ListView` widget instead of a `Column`.
 
 ## ListView.builder
 
-Take a list of objects and builds widgets for each one dunamically, instead of using a function that returns a widget per object.
+Take a list of objects and builds widgets for each one dynamically, instead of using a function that returns a widget per object.
 
 Using function
 ```dart
@@ -49,8 +49,8 @@ Expanded(
 
 Some times we want the list to take up as little space as possible, in these cases set `shrinkWrap: true`.
 
-This is costly for large lists, as shrinkwrap evaluates the entire list and its size before rendering.
+This is costly for large lists, as shrinkwrap evaluates the entire list and renders it all from the moment the widget is rendered.
 
 ## ListView.builder inside ListView
 
-It is possible to use a ListView(.builder) nested. Either using Expanded or ShrinkWrap to define it's height. Don't do this, use [Sliver](sliver.md) instead.
+It is possible to use a ListView(.builder) nested. Either using Expanded or ShrinkWrap to define it's height. However, don't do this, use [Sliver](sliver.md) instead.
