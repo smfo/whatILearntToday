@@ -87,3 +87,5 @@ git push --force-with-lease --set-upstream origin feature/data-export-download-1
 ```
 
 ### How to force push in tortoise git
+
+In the push dialog there are two checkboxes for this: force with lease and force

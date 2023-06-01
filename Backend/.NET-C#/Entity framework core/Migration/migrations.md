@@ -37,6 +37,8 @@
 
 `dotnet ef update database`
 
+Visual studio: `dotnet ef database update`
+
  After a migration is created the database needs to be updated to invoke the changes.\
  Adding `-verbose` logs everything that is done by this command.\
  
@@ -56,11 +58,19 @@ The Default Project in the Package Manager Console is set to the context project
 An interface cannot be initialised, so in order to actually do somehting the Startup project of the namespace needs to be set to an executable project. This is a project that uses .NET Core instead of .NET Standard, like a console project. In VS this can be done by right clicking the project and selecting "Set as startup project".
 
 ## Reverting migration
-If the migration is not added to the database, the migration can be removed by using
-```remove-migration ```.
+TO revert to an earlier migration run
+```C#
+dotnet ef database update <NameOfMigrationToRevertTo>
+```
 
-If the migration is added to the database update to the migration previous to this and then remove the migration.
+This will run the `down` methods of the migrations that are now reversed.
+
+## Delete migration
+
+If the migration is not added to the database, the migration can be removed/deleted by using
+
+```C#
+dotnet ef migrations remove
 ```
-update-migration <previous migration>
-remove-migration
-```
+
+If the migration is added to the database, update to the migration previous to this and then remove the migration.
