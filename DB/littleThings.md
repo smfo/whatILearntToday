@@ -2,7 +2,7 @@
 
 ## Scalar, aggregated function
 
-**Scalar** function returns one value per invocation, in most cases this means per row. This differs from **aggregated** functions which returns one value per groupd of rows.
+**Scalar** function returns one value per invocation, in most cases this means per row. This differs from **aggregated** functions which returns one value per group of rows.
 
 ## SelectMany
 

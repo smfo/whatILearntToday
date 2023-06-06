@@ -34,3 +34,12 @@ modelBuilder.Entity<Delivery>()
 ```
 
 You can define a table without a key using `HasNoKey`, however that has other consequenses for that table that I don't know.
+
+## Combination key
+
+Add a combinationkey from existing fields like this
+
+```C#
+modelBuilder.Entity<Losningsprosent>()
+			.HasKey(l => new {l.DeliverySetId, l.OppgavePosisjon});
+```
