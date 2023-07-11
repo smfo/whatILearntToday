@@ -33,3 +33,12 @@ void main() {
 ```dart
 flutter create my_project
 ```
+
+## Update version number
+
+Change the versionnumber in the pubspec.yaml file
+
+```dart
+# App version
+version: 1.8.0
+```
