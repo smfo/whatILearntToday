@@ -33,3 +33,6 @@ Using the emulator for Firestore is also great because it allows you to see all 
 To persist data use this comand on start. Or a subset of it.
 
 `firebase emulators:start (--only firestore) --import=<export-folder> --export-on-exit=<export-folder>`
+
+To trigger while running run\
+`firebase emulators:export/import <folder>`
