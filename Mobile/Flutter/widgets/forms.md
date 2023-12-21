@@ -17,3 +17,35 @@ Therefore it is a lot easier to use a package than the basic flutter formwidgets
 This happens when having multiple form fields inside the same Row, Column or Flex, because the field needs to be given width constraints.
 
 This can be solved by placing the fieldwidgets inside an [Expanded](./looks/expanded.md)
+
+```dart
+Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 5, 10),
+                    child: ReactiveDropdownField(
+                      formControlName: '$index.$exerciseSetsField',
+                      items: getDropdownValues(8),
+                      decoration: const InputDecoration(
+                        labelText: exerciseSets,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: ReactiveTextField(
+                      formControlName: '$index.$exerciseRepsField',
+                      textCapitalization: TextCapitalization.sentences,
+                      decoration: const InputDecoration(
+                        labelText: exerciseReps,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+```
