@@ -3,6 +3,7 @@
 - Create an assets folder in the root of the project
 - Add, either individual assets or whole folders, to the pubspec.yaml under "Flutter". NB! NOT Dependencies - Flutter
 - Refer to the assets from your flutter files
+- Restart te application to display in emulator
 
 ```yaml
 flutter:
