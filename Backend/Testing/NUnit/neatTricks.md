@@ -6,6 +6,8 @@
 Used to run the same test multiple times with some variables that vary. The variables can be listed
 in the parentesies.
 
+Alternativly use [testCaseScenarios](./testCaseSource.md)
+
 ```C#
 [TestCase("Test user", false)]
 [TestCase(null, true)]

@@ -11,3 +11,7 @@
 
 - Mockito
 - [Mocktail](mocktail.md)
+
+## Local storage
+
+- [Hive](hive.md)
