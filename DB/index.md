@@ -4,7 +4,7 @@ The purpose of indexes is to optimize performance by minimizing the number of di
 
 An index contains of a search key (a copy of the primary key or the chosen index value for the table. These are stored in sorted order) and a data reference/pointer to the disk block of the key value.
 
-![DB index](./dbIndex.png "Index")
+![DB index](./img/dbIndex.png "Index")
 
 Index attributes:
 - Access types: type of access (search, range etc.)
@@ -21,13 +21,13 @@ Based on a sorted ordering of values. Fast and more traditional storing mechanis
 
 There is an index record for every search key value in the data file. The record contains the search key and a reference to the first data record with that search key value.
 
-![dense](./dense.png "Dense")
+![dense](./img/dense.png "Dense")
 
 ### Sparce index
 
 The index only hold records for a few items in the data file, each pointing to a block. To locate a record we find the index record with the largest value, closest to our desired result (larg but smaller than the record or equal to the record). We start at the indexed record and process until we find the desired record.
 
-![sparse](./sparse.png "Sparse")
+![sparse](./img/sparse.png "Sparse")
 
 ## Hash file organization
 
@@ -39,7 +39,7 @@ Records with similar characteristics are grouped together on disks and indexes a
 
 Multiple records related to the same thing are stored in the same file. These files are ordered on non-key fields. Clusters may be created non-primary keys columns that do not have to be unique for each record. These will be grouped together and we will create an index on them.
 
-![Cluster](./cluster.png "Cluster")
+![Cluster](./img/cluster.png "Cluster")
 
 This is a way to store tha actual data in the table. Because of this you can only have one clustered index per table.
 
@@ -49,7 +49,7 @@ This index tells you where the data lies using pointers/references to where the 
 
 Unlike with a clustered index, the data is not physically stored in order of the index, this means we have to have dense ordering. As all records have to be represented.
 
-![Secondary](./secondary.png "Secondary")
+![Secondary](./img/secondary.png "Secondary")
 
 This index only contains the columns defined in the index, as well as a pointer to the actual data. For example the primary key to the clustered index.
 
@@ -72,7 +72,7 @@ The index above is over the column EpsDelivery, and includes ItemId, Score and M
 
 With a lot of data, the index size also grows and might become to large to store in a single level. This index separates the index into smaller blocks which in turn point to the data blocks where the data is available.
 
-![Multilevel](./multilevel.png "Multilevel")
+![Multilevel](./img/multilevel.png "Multilevel")
 
 ## Traversing
 
