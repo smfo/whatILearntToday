@@ -5,7 +5,9 @@ It makes it so that you can distuinguish between different integers and strings 
 
 ## Private constructor
 By having a private constructor you force the user to us eone of your `.From` methods to create an object.\
-We do this because we do not want to throw an exception in the constructor if there are complicated rules fr the type etc..
+We do this because we do not want to throw an exception in the constructor if there are complicated rules for the type etc..
+
+It can also be beneficial to use a public constructor is there is no throw.
 
 ## From
 Takes a parameter of type x and returns an object of the given type by using the private constructor.
@@ -18,6 +20,17 @@ Ex. when you want to create an Id type and the value is a randon Guid.
 
 Other methods that can be helpful to create for the type
 
+## IComparable<T>, IEquatable<T>
+
+IComparable is used to compare two instances of the same type. It's method `CompareTo(Object)` returns an int, -1, 0  or 1, to specify if the input is greater or lesser than the given object. This can be used to order or sort objects.
+
+IEquatable is used to define if two instances of the same type are equal. It is by default supported by objects such as Dictionary and List and should therefore be implemented by any object that might be stored in a generic collection.
+
+
+---> TypeConverter vs implicit operator
+https://stackoverflow.com/questions/379343/are-implicit-operators-and-typeconverters-equivalent
+
+Example
 
 ```C#
 
