@@ -1,6 +1,6 @@
 # Basic
 
-Tags that are created purely to style an element. The element itself is a valis html element, but the style is defined to not have to mock around with `className` or other types of styling.
+Tags that are created purely to style an element. The element itself is a valid html element, but the style is defined to not have to mock around with `className` or other types of styling.
 
 ```js
 npm install --save styled-components

@@ -1,6 +1,6 @@
 # Psedo-element
 
-A specific keyword that allows you to style a specific part of the element selected by using a CSS selector. They are very usefull when you want to style an element withoug adding CSS classes of IDs.
+A specific keyword that allows you to style a specific part of the element selected by using a CSS selector. They are very usefull when you want to style an element withoug adding CSS classes or IDs.
 
 ::first-line, ::first-letter, ::before, ::after
 

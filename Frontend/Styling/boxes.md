@@ -18,7 +18,7 @@ display: inline;
 ## Inline boxes
 
 * Don't affect vertical spacing. They are for styling stuff inside a block, and appears inside block boxes
-* The width is based on the containt in the container, not the parent
+* The width is based on the content in the container, not the parent
 * Completly ignore vertical margin
 
 **Span** is a inline element.
