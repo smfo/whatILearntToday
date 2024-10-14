@@ -61,11 +61,13 @@ Preferences: Open Keyboard Shortcuts (JSON)
 
 Others:
 
+Alt + Shift + F			//Format file
+
 Ctrl + Alt + Left/Right //Move file to new split editor
 Ctrl + E                //Open file by name
 Ctrl + Tab              //Navigate split editor files
 Ctrl + Number           //Change split editor in focus
-Ctrl + B                //Close sidebar
+Ctrl + B                //Open/Close sidebar
 Ctrl + Alt + Click      //Open deffinition in split editor
 Alt + Shift + Up/Down   //Copy line up/down
 Alt + Up/Down           //Move line up/down

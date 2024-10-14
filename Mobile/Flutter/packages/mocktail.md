@@ -5,7 +5,7 @@
 
 Mocktail is an easy packare to create mocks in flutter.
 
-To be able to use mocked instances, they have to be provided using dependensy injection, for example with Riverpod.
+To be able to use mocked instances, **they have to be provided using dependensy injection**, for example with Riverpod.
 
 # Create mock
 
@@ -100,8 +100,10 @@ There are also other functions available like `callCount`
 
 Used to allow any value for a parameter. Maybe you don't know what the value will be, maybe you will call a function lots of times with a different value for this parameter and it doesn't make a difference.
 
-`verify(() => routineClient.saveDayJson(any(), workoutId)).called(1);`
-`when(() => routineClient.saveDayJson(any(), workoutId)).thenAnswer((_) async => dayId);`
+```dart
+verify(() => routineClient.saveDayJson(any(), workoutId)).called(1);
+when(() => routineClient.saveDayJson(any(), workoutId)).thenAnswer((_) async => dayId);
+```
 
 ### Named parameters
 ```dart

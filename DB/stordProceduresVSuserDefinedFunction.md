@@ -2,16 +2,24 @@
 
 ## Functions and procedures
 
-Functions
+Functions can be called from procedures whereas procedures cannot be called from functions
+
+### Functions
 - Must return a single value (scalar or a table)
-- Cannot return a parameter
+- Can have input parameters
+- Cannot return output parameters
 - Cannot alter anything (insert, update or delete)
 
-Procedures
+Lets you create a function by using a SQL expression. It is possible to accept columns of input, perform actions on these retrived values and return the result of those actions as a value.
+
+### Procedures
 - Can change database objects
 - Do not have to return a value
-- Can have input and output parameters, not just single values
-- Caon contain try-catch
+- Can have multiple input values, not just a single values
+- Can have output parameters
+- Can contain try-catch
+
+
 
 
 ```sql
@@ -24,7 +32,8 @@ CREATE TYPE TestData.FNrAndDeliveryIds AS TABLE(FNr NVARCHAR(450),
     EpsDeliveryId NVARCHAR(450));
 GO
 
--- TestDate.RenderGdsDeleteScriot follows schema_name.function_name
+-- Function example
+-- TestDate.RenderGdsDeleteScript follows schema_name.function_name
 CREATE OR ALTER FUNCTION TestData.RenderGdsDeleteScript(@rows FNrAndDeliveryIds READONLY)
 RETURNS NVARCHAR(MAX)
 AS
