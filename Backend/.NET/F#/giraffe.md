@@ -16,7 +16,8 @@ Each Handler has the full HttpContext at its disposal and can decide whether it 
 
 ### Compose (>=>)
 
-The `compose` combinator combines two `HttpHandler` functions into one
+The `compose` combinator combines two `HttpHandler` functions into one.\
+If the first input (left side) is true, then we continue with the second input (right side). So below, if the route starts with "/", chech the next argument `Successful.Ok`.
 
 ```F#
 let app = compose (route "/") (Successful.OK "Hello World")

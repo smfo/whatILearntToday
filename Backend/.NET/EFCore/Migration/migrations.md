@@ -74,3 +74,24 @@ dotnet ef migrations remove
 ```
 
 If the migration is added to the database, update to the migration previous to this and then remove the migration.
+
+## At runtime
+
+To run migrations at runtime, create a function that will be called wither in Program.cs - Main or in Setup.cs - Configure
+
+Something like this
+
+```C#
+public static class Migrator
+{
+    public static void MigrateDb(this IApplicationBuilder app)
+    {
+
+        using (var serviceScope = app.ApplicationServices.CreateScope())
+        {
+            var context = serviceScope.ServiceProvider.GetService<TimekeeperDbContext>();
+            context.Database.Migrate();
+        }
+    }
+}
+```

@@ -1,6 +1,6 @@
 # Patterns
 
-in F# patters are fules used to transporm input data. They are used to compare data with a logocal structure, decompose data into parts and extractin information from data in various ways.
+In F# patters are fules used to transporm input data. They are used to compare data with a logocal structure, decompose data into parts and extractin information from data in various ways.
 
 With composition you string functions together to create larger function patterns that can be used over. With pipelines you start with data and lead them through a set of functions
 

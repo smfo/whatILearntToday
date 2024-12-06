@@ -71,7 +71,7 @@ let otherCardList = ["Jack"; "10"]
 let fullList = cards @ otherCardList // "Ace", "King", "Queen", "Jack", "10"
 ```
 
-**Currying**\
+**Querying**\
 Taking a function with multiple parameter and rewriting it as a series of new functions, that each only take one parameter. This is done automatically by the compiler.
 
 ## Typesafe - type inference
@@ -83,24 +83,27 @@ The code below will give a compilation error because F# has infered from line 2 
 ```F#
 let add a b = a + b
 let sum = add 2 2 
-// will give compilation error
+// Will give compilation error
 let concat = add "hello" "world" 
 ```
 
 If you want to be explicit about parameter and return types, you can do it like so
 ```F#
 // let <function name> (<parameter>:<parameter type>) :<return type>= <function body>
-// let <function name> (<parameter>:<parameter type>) (<parameter>:<parameter type>) :<return type>= <function body>
+// let <function name> (<parameter>:<parameter type>) (<parameter>:<parameter type>) :<return type> = <function body>
 
 let convert (a:string) :int =
     int a
 ```
 
+## Bind
+The concept used for `let!`. When used within a `Task` it can be thought of as a form of `await`.
+
 ## Discriminated unions
 
 Discriminated unions are reference types
 
-Provice support for values that can be one of a number of named cases, like Enums, where each case can be a different value and type, unlike Enums.
+Provide support for values that can be one of a number of named cases, like Enums, where each case can be a different value and type, unlike Enums.
 
 ```F#
 [ attributes ]
@@ -122,7 +125,7 @@ type GitHubProject =
       State: ProjectState
     }
 
-// Valid GitHubProject instanses
+// Valid GitHubProject instances
 let corefxlab = 
     {
         ProjectName = "corefxlab"
